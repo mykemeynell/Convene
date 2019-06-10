@@ -11,11 +11,16 @@
 |
 */
 
+Auth::routes();
+
 /** @var \Illuminate\Routing\Router $router */
 $router = app('router');
 
-$router->get('/', function() { return abort(500, "Something or other"); });
+$options = [
+    'middleware' => ['web', 'auth',],
+];
 
-Auth::routes();
+$router->group($options, function () use ($router) {
+});
 
-$router->get('/home', 'HomeController@index')->name('home');
+
