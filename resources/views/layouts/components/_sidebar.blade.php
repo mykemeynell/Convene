@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-            <img src="{{ asset('images/logo/logo.svg') }}" width="39" alt="Convene Logo">
+            <img src="{{ asset('images/logo/logo-white.svg') }}" width="39" alt="Convene Logo">
         </div>
         <div class="sidebar-brand-text mx-3">Convene</div>
     </a>
