@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/** @var \Illuminate\Routing\Router $router */
+$router = app('router');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+$router->get('/', function() { return view('error'); });
 
 Auth::routes();
 
