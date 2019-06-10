@@ -19,12 +19,11 @@
 
                             <!-- 404 Error Text -->
                             <div class="text-center">
+                                <img src="{{ asset('images/logo/logo.svg') }}" width="100" alt="Convene Logo" class="mb-5">
                                 <div class="error mx-auto" data-text="404">404</div>
-                                <p class="lead text-gray-800 mb-5">Page Not Found</p>
-                                <p class="text-gray-500 mb-0">That page doesn't exist</p>
+                                <p class="lead text-gray-800 mb-5">That page doesn't exist</p>
+                                <p class="text-gray-500 mb-0">It looks like the page you were looking for has moved or has been deleted!</p>
                                 <a href="#">&larr; Back to Dashboard</a>
-                                <br><hr><br>
-                                <a href="#" onclick="openGitHubReport();" class="btn btn-primary">Report</a>
                             </div>
 
                         </div>
