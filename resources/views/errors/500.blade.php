@@ -19,9 +19,9 @@
 
                             <!-- 404 Error Text -->
                             <div class="text-center">
+                                <img src="{{ asset('images/logo/logo.svg') }}" width="100" alt="Convene Logo" class="mb-5">
                                 <div class="error mx-auto" data-text="500">500</div>
                                 <p class="lead text-gray-800 mb-5">{{ $exception->getMessage() ?: 'An error occurred' }}</p>
-                                <img src="{{ asset('images/logo/logo.svg') }}" width="50" alt="Convene Logo" class="mb-5">
                                 <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
                                 <a href="#">&larr; Back to Dashboard</a>
                                 <br><hr><br>
