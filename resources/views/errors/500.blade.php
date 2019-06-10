@@ -24,7 +24,7 @@
                                 <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
                                 <a href="#">&larr; Back to Dashboard</a>
                                 <br><hr><br>
-                                <a href="#" onclick="openGitHubReport();" class="btn btn-primary">Report</a>
+                                <a href="#" data-status="{{ $exception->getStatusCode() }}" data-message="{{ $exception->getMessage() }}" class="js-open-report btn btn-primary">Report</a>
                             </div>
 
                         </div>

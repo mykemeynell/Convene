@@ -14,7 +14,7 @@
 /** @var \Illuminate\Routing\Router $router */
 $router = app('router');
 
-$router->get('/', function() { return view('error'); });
+$router->get('/', function() { return abort(500, "Something or other"); });
 
 Auth::routes();
 
