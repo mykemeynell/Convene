@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 require('./GitHubIssueReport');
+require('./sb-admin-2.min');
 
 /**
  * The following block of code may be used to automatically register your
