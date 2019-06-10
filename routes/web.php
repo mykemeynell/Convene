@@ -18,4 +18,4 @@ $router->get('/', function() { return view('error'); });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+$router->get('/home', 'HomeController@index')->name('home');
