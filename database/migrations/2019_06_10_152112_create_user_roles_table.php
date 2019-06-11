@@ -19,8 +19,8 @@ class CreateUserRolesTable extends Migration
             $this->createUuidColumn($table, 'id');
             $table->string('name')->unique();
             $table->text('description')->nullable();
+            $table->unsignedTinyInteger('protected')->default(0);
             $table->timestamps();
-
         });
     }
 
