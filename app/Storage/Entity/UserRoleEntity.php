@@ -2,8 +2,10 @@
 
 namespace Convene\Storage\Entity;
 
+use ArchLayer\Entity\Concern\EntityHasTimestamps;
 use Convene\Storage\Entity\Contract\UserRoleEntityInterface;
 use Illuminate\Database\Eloquent\Model;
+use UuidColumn\Concern\HasUuidObserver;
 
 /**
  * Class UserRoleEntity.
@@ -12,6 +14,36 @@ use Illuminate\Database\Eloquent\Model;
  */
 class UserRoleEntity extends Model implements UserRoleEntityInterface
 {
+    use EntityHasTimestamps, HasUuidObserver;
+
+    /**
+     * The table name.
+     *
+     * @var string
+     */
+    protected $table = 'user_roles';
+
+    /**
+     * The "type" of the primary key ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'description',];
+
     /**
      * Get the display name of a role.
      *
