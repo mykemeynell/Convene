@@ -12,19 +12,19 @@ class DefaultRoleSeeder extends Seeder
     protected $roles = [
         [
             'name' => 'System Administrator',
-            'description' => 'Highest administrator level, can access all areas and administer the application',
+            'description' => '(System - Protected) Highest administrator level, can access all areas and administer the application',
         ],
         [
             'name' => 'Administrator',
-            'description' => 'Can administer users, and spaces, but cannot alter the properties and settings of the application',
+            'description' => '(System - Protected) Can administer users, and spaces, but cannot alter the properties and settings of the application',
         ],
         [
             'name' => 'User',
-            'description' => 'Can create and edit spaces and pages',
+            'description' => '(System - Protected) Can create and edit spaces and pages',
         ],
         [
             'name' => 'Consumer',
-            'description' => 'Akin to read-only access, cannot modify any content. Only has access to areas that are public ' .
+            'description' => '(System - Protected) Akin to read-only access, cannot modify any content. Only has access to areas that are public ' .
                 'or that spaces that they have been granted access to explicitly.',
         ],
     ];
@@ -36,6 +36,11 @@ class DefaultRoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        /** @var \Convene\Storage\Service\UserService $service */
+        $service = app('userRole.service');
+
+        foreach((array) $this->roles as $role) {
+            $service->create(new \Symfony\Component\HttpFoundation\ParameterBag($role));
+        }
     }
 }
