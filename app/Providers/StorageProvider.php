@@ -33,6 +33,9 @@ class StorageProvider extends ServiceProvider
     public function register(): void
     {
         $this->registerAliases();
+        $this->registerEntities();
+        $this->registerRepositories();
+        $this->registerServices();
     }
 
     /**
@@ -52,7 +55,7 @@ class StorageProvider extends ServiceProvider
      */
     protected function registerRepositories(): void
     {
-         $this->app->singleton('user.entity', \Convene\Storage\Repository\UserRepository::class);
+         $this->app->singleton('user.repository', \Convene\Storage\Repository\UserRepository::class);
     }
 
     /**
@@ -62,6 +65,6 @@ class StorageProvider extends ServiceProvider
      */
     protected function registerServices(): void
     {
-         $this->app->singleton('user.entity', \Convene\Storage\Service\UserService::class);
+         $this->app->singleton('user.service', \Convene\Storage\Service\UserService::class);
     }
 }
