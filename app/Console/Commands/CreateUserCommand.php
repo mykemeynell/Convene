@@ -49,8 +49,9 @@ class CreateUserCommand extends Command
         $is_root = true;
         $is_active = true;
 
-        if($password !== $confirm) {
+        if ($password !== $confirm) {
             $this->error("Passwords do not match");
+
             return 2;
         }
 
@@ -62,10 +63,12 @@ class CreateUserCommand extends Command
         $userService = app('user.service');
 
         /** @var \Convene\Storage\Entity\UserEntity $user */
-        if($user = $userService->create(new ParameterBag(compact('first_name', 'last_name', 'email', 'username', 'password', 'is_active', 'is_root', 'role_id'))))
+        if ($user = $userService->create(new ParameterBag(compact('first_name', 'last_name', 'email', 'username',
+            'password', 'is_active', 'is_root', 'role_id')))) {
             $this->info("User '{$user->getKey()}' has been created.");
-        else
+        } else {
             $this->error("Failed to create user.");
+        }
 
         return 0;
     }
