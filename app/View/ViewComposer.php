@@ -40,6 +40,7 @@ class ViewComposer
     public function compose(View $view): void
     {
         $view->with('user', Auth::user())
-            ->with('route', $this->request->path());
+            ->with('route', $this->request->route()->getName())
+            ->with('path', $this->request->path());
     }
 }
