@@ -42,4 +42,16 @@ class UserRoleService extends Service implements UserRoleServiceInterface
 
         return $role;
     }
+
+    /**
+     * Get a role by name.
+     *
+     * @param string $name
+     *
+     * @return \Convene\Storage\Entity\Contract\UserRoleEntityInterface|\Illuminate\Database\Eloquent\Model
+     */
+    public function findByName(string $name): UserRoleEntityInterface
+    {
+        return $this->getRepository()->builder()->where('name', $name)->first();
+    }
 }

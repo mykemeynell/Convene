@@ -21,4 +21,13 @@ interface UserRoleServiceInterface extends ServiceInterface
      * @return \Convene\Storage\Entity\Contract\UserRoleEntityInterface
      */
     public function create(ParameterBag $payload): UserRoleEntityInterface;
+
+    /**
+     * Get a role by name.
+     *
+     * @param string $name
+     *
+     * @return \Convene\Storage\Entity\Contract\UserRoleEntityInterface|\Illuminate\Database\Eloquent\Model
+     */
+    public function findByName(string $name): UserRoleEntityInterface;
 }
