@@ -13,13 +13,13 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Activity -->
-    <li class="nav-item active">
+    <li class="nav-item @if(in_array($route, ['default.view'])) active @endif">
         <a class="nav-link" href="{{ route('default.view') }}">
             <i class="fas fa-fw fa-briefcase"></i>
             <span>Activity</span></a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item @if(in_array($route, ['spaces.view'])) active @endif">
         <a class="nav-link" href="{{ route('spaces.view') }}">
             <i class="fas fa-fw fa-boxes"></i>
             <span>Spaces</span></a>
