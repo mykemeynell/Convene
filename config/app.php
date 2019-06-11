@@ -174,6 +174,7 @@ return [
         // Convene\Providers\BroadcastServiceProvider::class,
         Convene\Providers\EventServiceProvider::class,
         Convene\Providers\RouteServiceProvider::class,
+        Convene\Providers\StorageProvider::class,
 
     ],
 
