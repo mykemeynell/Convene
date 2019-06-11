@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Convene\User::class,
+            'model' => \Convene\Storage\Entity\UserEntity::class,
         ],
 
         // 'users' => [
