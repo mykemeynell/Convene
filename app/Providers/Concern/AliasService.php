@@ -25,5 +25,24 @@ trait AliasService
             }
         }
     }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides(): array
+    {
+        $provides = [];
+
+        foreach($this->aliases as $alias => $providers) {
+            $provides[] = $alias;
+            foreach($providers as $provider) {
+                $provides[] = $provider;
+            }
+        }
+
+        return $provides;
+    }
 }
 
