@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use UuidColumn\Concern\UuidColumn;
 
-class CreateSpacesTable extends Migration
+class CreateSpacesAccess extends Migration
 {
     use UuidColumn;
 
@@ -16,13 +16,12 @@ class CreateSpacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('spaces', function (Blueprint $table) {
+        Schema::create('space_access', function (Blueprint $table) {
             $this->createUuidColumn($table, 'id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('owner');
-            $table->string('access');
             $table->string('slug')->unique();
+            $table->string('icon');
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateSpacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spaces');
+        Schema::dropIfExists('space_access');
     }
 }
