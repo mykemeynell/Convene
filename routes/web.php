@@ -17,11 +17,13 @@ Auth::routes();
 $router = app('router');
 
 $options = [
-//    'middleware' => ['web', 'auth',],
+    'middleware' => ['web', 'auth',],
 ];
 
 $router->group($options, function () use ($router) {
-    $router->get('/', 'DefaultViewController@index');
+    $router->get('/', function() { return redirect()->route('default.view'); }); // Redirect users to default url.
+
+    $router->get('/default', 'DefaultViewController@index')->name('default.view');
 });
 
 
