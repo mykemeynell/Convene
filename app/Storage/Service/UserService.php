@@ -34,5 +34,11 @@ class UserService extends Service implements Contract\UserServiceInterface
     public function create(ParameterBag $payload): UserEntityInterface
     {
         $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
+
+        /** @var \Convene\Storage\Entity\UserEntity $user */
+        $user = $this->getRepository()->create($attributes);
+        $user->save();
+
+        return $user;
     }
 }
