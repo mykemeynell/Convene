@@ -24,6 +24,8 @@ $router->group($options, function () use ($router) {
     $router->get('/', function() { return redirect()->route('default.view'); }); // Redirect users to default url.
 
     $router->get('/default', 'DefaultViewController@index')->name('default.view');
+
+    $router->get('/spaces', 'SpacesController@index')->name('spaces.view');
 });
 
 
