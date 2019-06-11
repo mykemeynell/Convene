@@ -4,14 +4,14 @@ namespace Convene\Storage\Repository;
 
 use ArchLayer\Repository\Repository;
 use Convene\Storage\Entity\Contract\SpacesAccessEntityInterface;
-use Convene\Storage\Repository\Contract\SpaceAccessRepositoryInterface;
+use Convene\Storage\Repository\Contract\SpacesAccessRepositoryInterface;
 
 /**
  * Class SpaceAccessRepository.
  *
  * @package Convene\Storage\Repository
  */
-class SpaceAccessRepository extends Repository implements SpaceAccessRepositoryInterface
+class SpacesAccessRepository extends Repository implements SpacesAccessRepositoryInterface
 {
     /**
      * SpaceAccessRepository constructor.

@@ -10,7 +10,7 @@ use Convene\Storage\Entity\Contract\SpacesAccessEntityInterface;
  *
  * @package Convene\Storage\Service\Contract
  */
-interface SpaceAccessServiceInterface extends ServiceInterface
+interface SpacesAccessServiceInterface extends ServiceInterface
 {
     /**
      * Get a space access level via the id.

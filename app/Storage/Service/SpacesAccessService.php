@@ -4,22 +4,22 @@ namespace Convene\Storage\Service;
 
 use ArchLayer\Service\Service;
 use Convene\Storage\Entity\Contract\SpacesAccessEntityInterface;
-use Convene\Storage\Repository\Contract\SpaceAccessRepositoryInterface;
-use Convene\Storage\Service\Contract\SpaceAccessServiceInterface;
+use Convene\Storage\Repository\Contract\SpacesAccessRepositoryInterface;
+use Convene\Storage\Service\Contract\SpacesAccessServiceInterface;
 
 /**
  * Class SpaceAccessService.
  *
  * @package Convene\Storage\Service
  */
-class SpaceAccessService extends Service implements SpaceAccessServiceInterface
+class SpacesAccessService extends Service implements SpacesAccessServiceInterface
 {
     /**
      * SpaceAccessService constructor.
      *
-     * @param \Convene\Storage\Repository\Contract\SpaceAccessRepositoryInterface|\ArchLayer\Repository\Repository $repository
+     * @param \Convene\Storage\Repository\Contract\SpacesAccessRepositoryInterface|\ArchLayer\Repository\Repository $repository
      */
-    function __construct(SpaceAccessRepositoryInterface $repository)
+    function __construct(SpacesAccessRepositoryInterface $repository)
     {
         $this->setRepository($repository);
     }

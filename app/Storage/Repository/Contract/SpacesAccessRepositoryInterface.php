@@ -10,7 +10,7 @@ use Convene\Storage\Entity\Contract\SpacesAccessEntityInterface;
  *
  * @package Convene\Storage\Repository\Contract
  */
-interface SpaceAccessRepositoryInterface extends RepositoryInterface
+interface SpacesAccessRepositoryInterface extends RepositoryInterface
 {
     /**
      * Find a space access entity using the slug.
