@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 class CreateUserCommand extends Command
 {
+    const ROLE = "System Administrator";
+
     /**
      * The name and signature of the console command.
      *
@@ -52,11 +54,15 @@ class CreateUserCommand extends Command
             return 2;
         }
 
-        /** @var \Convene\Storage\Service\Contract\UserServiceInterface $service */
-        $service = app('user.service');
+        /** @var \Convene\Storage\Service\UserRoleService $userRoleService */
+        $userRoleService = app('userRole.service');
+        $role_id = $userRoleService->findByName(self::ROLE)->getKey();
+
+        /** @var \Convene\Storage\Service\UserService $userService */
+        $userService = app('user.service');
 
         /** @var \Convene\Storage\Entity\UserEntity $user */
-        if($user = $service->create(new ParameterBag(compact('first_name', 'last_name', 'email', 'username', 'password', 'is_active', 'is_root'))))
+        if($user = $userService->create(new ParameterBag(compact('first_name', 'last_name', 'email', 'username', 'password', 'is_active', 'is_root', 'role_id'))))
             $this->info("User '{$user->getKey()}' has been created.");
         else
             $this->error("Failed to create user.");

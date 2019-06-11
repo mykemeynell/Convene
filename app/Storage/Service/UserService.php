@@ -37,6 +37,12 @@ class UserService extends Service implements Contract\UserServiceInterface
 
         /** @var \Convene\Storage\Entity\UserEntity $user */
         $user = $this->getRepository()->create($attributes);
+
+        $user->forceFill([
+            'password' => $payload->get('password'),
+            'role_id' => $payload->get('role_id'),
+        ]);
+
         $user->save();
 
         return $user;

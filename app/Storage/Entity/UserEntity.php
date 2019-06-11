@@ -43,7 +43,7 @@ class UserEntity extends Authenticatable implements Contract\UserEntityInterface
      *
      * @var array
      */
-    protected $fillable = ['first_name', 'last_name', 'email', 'email_verified_at', 'password', 'role_id', 'is_root',
+    protected $fillable = ['first_name', 'last_name', 'email', 'username', 'email_verified_at', 'password', 'role_id', 'is_root',
         'is_active', 'remember_token',];
 
     /**
@@ -168,5 +168,17 @@ class UserEntity extends Authenticatable implements Contract\UserEntityInterface
     public function isActive(): bool
     {
         return $this->is_active;
+    }
+
+    /**
+     * Encrypt the password value prior to setting.
+     *
+     * @param $value
+     *
+     * @return void
+     */
+    public function setPasswordAttribute($value): void
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 }
