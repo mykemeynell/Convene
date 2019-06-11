@@ -1,7 +1,5 @@
-@extends('layouts.page')
+@extends('layouts.page', ['page_title' => 'Activity'])
 
 @section('body')
-
-    @include('layouts.components._page-title', ['title' => 'Activity'])
 
 @endsection

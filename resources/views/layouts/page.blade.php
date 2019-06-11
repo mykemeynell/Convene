@@ -18,6 +18,10 @@
             <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    @include('layouts.components._page-title', ['title' => $page_title])
+
+                    <div class="my-4"></div>
+
                     @yield('body')
 
                 </div>

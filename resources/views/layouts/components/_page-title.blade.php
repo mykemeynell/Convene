@@ -1,5 +1,5 @@
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">
+<h3 class="h1 mb-0 text-gray-800">
     @foreach((array) $title as $step)
         @if(! $loop->last )
             <span class="text-secondary d-inline-block">{{ $step }} &rsaquo; </span>
@@ -7,4 +7,4 @@
             <span class="text-dark inline-block">{{ $step }}</span>
         @endif
     @endforeach
-</h1>
+</h3>
