@@ -18,7 +18,8 @@
 
                                 <h1 class="h4 text-gray-900 mb-4">{{ __('Sign in to Convene') }}</h1>
                             </div>
-                            <form class="user" method="POST" action="{{ route('login') }}">
+                            <form class="user" id="login-form" name="login-form">
+                                {!! csrf_field() !!}
                                 <div class="form-group">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -43,9 +44,9 @@
                                         <label class="custom-control-label" for="customCheck">{{ __('Remember Me') }}</label>
                                     </div>
                                 </div>
-                                <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                <button type="submit" form="login-form" formaction="{{ route('login') }}" formmethod="POST" class="btn btn-primary btn-user btn-block">
                                     {{ __('Login') }}
-                                </a>
+                                </button>
                             </form>
                             <hr>
                             @if (Route::has('password.request'))
