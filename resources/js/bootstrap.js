@@ -36,3 +36,25 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+/**
+ * Here we search for all instances of <select> tags that have a class of "selectize"
+ * so that we can create an instance of $.selectize around them.
+ */
+require('selectize');
+
+$('.selectize').selectize();
+
+$('.space-access-select').selectize({
+    create:false,
+    render: {
+        option: function(item) {
+            return '<div class="option" data-selectable="" data-value="' + item.value + '">' +
+                '<i class="issue-icon ' + item.text.toLowerCase() + '"></i>' + item.text + '</div>';
+        }
+    },
+    change: function() {
+        console.log('sdf');
+    }
+});
+

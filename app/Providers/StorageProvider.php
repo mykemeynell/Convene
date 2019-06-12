@@ -55,7 +55,7 @@ class StorageProvider extends ServiceProvider
     {
         $this->app->bind('user.entity', \Convene\Storage\Entity\UserEntity::class);
         $this->app->bind('userRole.entity', \Convene\Storage\Entity\UserRoleEntity::class);
-        $this->app->bind('spaceAccess.entity', \Convene\Storage\Entity\SpacesAccessEntity::class);
+        $this->app->bind('spaceAccess.entity', \Convene\Storage\Entity\SpaceAccessEntity::class);
     }
 
     /**

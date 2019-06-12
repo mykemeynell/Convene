@@ -4,8 +4,10 @@ namespace Convene\Storage\Service;
 
 use ArchLayer\Service\Service;
 use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
+use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Convene\Storage\Repository\Contract\SpaceAccessRepositoryInterface;
 use Convene\Storage\Service\Contract\SpaceAccessServiceInterface;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class SpaceAccessService.
@@ -45,6 +47,24 @@ class SpaceAccessService extends Service implements SpaceAccessServiceInterface
      */
     public function findUsingSlug(string $slug): ?SpaceAccessEntityInterface
     {
-        return $this->findUsingSlug($slug);
+        return $this->getRepository()->builder()->where('slug', $slug)->first();
+    }
+
+    /**
+     * Create a new access entity in the database.
+     *
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return \Convene\Storage\Entity\Contract\SpaceAccessEntityInterface
+     */
+    public function create(ParameterBag $payload): SpaceAccessEntityInterface
+    {
+        $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
+
+        /** @var \Convene\Storage\Entity\SpaceAccessEntity $entity */
+        $entity = $this->getRepository()->create($attributes);
+        $entity->save();
+
+        return $entity;
     }
 }

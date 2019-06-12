@@ -4,6 +4,7 @@ namespace Convene\Storage\Service\Contract;
 
 use ArchLayer\Service\Contract\ServiceInterface;
 use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Interface SpaceAccessServiceInterface.
@@ -29,4 +30,13 @@ interface SpaceAccessServiceInterface extends ServiceInterface
      * @return \Convene\Storage\Entity\Contract\SpaceAccessEntityInterface|null
      */
     public function findUsingSlug(string $slug): ?SpaceAccessEntityInterface;
+
+    /**
+     * Create a new access entity in the database.
+     *
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return \Convene\Storage\Entity\Contract\SpaceAccessEntityInterface
+     */
+    public function create(ParameterBag $payload): SpaceAccessEntityInterface;
 }
