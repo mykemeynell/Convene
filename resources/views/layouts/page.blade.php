@@ -3,7 +3,7 @@
 @section('body_class', 'page-top')
 
 @section('content')
-    <div id="wrapper">
+    <div id="wrapper" @if(isset($wrapper_classes)) class="{{ $wrapper_classes }}" @endif>
 
     @if(! isset($show_sidebar) || $show_sidebar === true)
         @include('layouts.components._sidebar')

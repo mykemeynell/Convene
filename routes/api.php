@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+/** @var \Illuminate\Routing\Router $router */
+$router = app('router');
+
+$router->get('/spaces/access-levels', function(\Convene\Storage\Service\Contract\SpaceAccessServiceInterface $service) {
+    return response()->json($service->fetchAll());
 });

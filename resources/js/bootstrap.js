@@ -43,18 +43,17 @@ if (token) {
  */
 require('selectize');
 
-$('.selectize').selectize();
+// $('.selectize').selectize();
 
-$('.space-access-select').selectize({
-    create:false,
+$('#space-access').selectize({
+    create: true,
     render: {
-        option: function(item) {
-            return '<div class="option" data-selectable="" data-value="' + item.value + '">' +
-                '<i class="issue-icon ' + item.text.toLowerCase() + '"></i>' + item.text + '</div>';
+        option: function(data, extra) {
+            console.log(data);
+            console.log(extra);
+            return '<div class="option py-3" data-selectable="" data-value="' + data.value + '">' +
+                '<i class="' + data.icon + ' mr-2"></i><strong>' + data.text + '</strong><br>' + data.description + '</div>';
         }
-    },
-    change: function() {
-        console.log('sdf');
     }
 });
 
