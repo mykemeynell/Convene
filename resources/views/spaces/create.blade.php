@@ -1,5 +1,6 @@
 @extends('layouts.page', [
-    'page_title' => ['Spaces', 'Create']
+    'page_title' => ['Spaces', 'Create'],
+    'show_sidebar' => false,
 ])
 
 @push('title_buttons')

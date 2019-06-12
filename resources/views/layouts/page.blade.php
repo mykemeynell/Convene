@@ -5,7 +5,9 @@
 @section('content')
     <div id="wrapper">
 
-    @include('layouts.components._sidebar')
+    @if(! isset($show_sidebar) || $show_sidebar === true)
+        @include('layouts.components._sidebar')
+    @endif
 
     <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -13,7 +15,9 @@
             <!-- Main Content -->
             <div id="content">
 
-            @include('layouts.components._topbar')
+            @if(! isset($show_topbar) || $show_topbar === true)
+                @include('layouts.components._topbar')
+            @endif
 
             <!-- Begin Page Content -->
                 <div class="container-fluid">
