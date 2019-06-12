@@ -4,6 +4,7 @@ namespace Convene\Storage\Service\Contract;
 
 use ArchLayer\Service\Contract\ServiceInterface;
 use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
+use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
@@ -39,4 +40,11 @@ interface SpaceAccessServiceInterface extends ServiceInterface
      * @return \Convene\Storage\Entity\Contract\SpaceAccessEntityInterface
      */
     public function create(ParameterBag $payload): SpaceAccessEntityInterface;
+
+    /**
+     * Fetch all access levels.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function fetchAll(): Collection;
 }

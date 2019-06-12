@@ -7,6 +7,7 @@ use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
 use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Convene\Storage\Repository\Contract\SpaceAccessRepositoryInterface;
 use Convene\Storage\Service\Contract\SpaceAccessServiceInterface;
+use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
@@ -66,5 +67,15 @@ class SpaceAccessService extends Service implements SpaceAccessServiceInterface
         $entity->save();
 
         return $entity;
+    }
+
+    /**
+     * Fetch all access levels.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function fetchAll(): Collection
+    {
+        return $this->getRepository()->builder()->get();
     }
 }
