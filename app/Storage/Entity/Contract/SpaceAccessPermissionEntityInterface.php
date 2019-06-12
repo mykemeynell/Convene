@@ -37,7 +37,7 @@ interface SpaceAccessPermissionEntityInterface
     /**
      * The space entity object.
      *
-     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface
+     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface|\Illuminate\Database\Eloquent\Model
      */
     public function space(): SpaceEntityInterface;
 
