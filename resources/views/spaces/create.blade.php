@@ -17,7 +17,9 @@
     <div class="row">
         <div class="col-4 offset-4">
 
-            <form action="">
+            <form name="create-space-form" id="create-space-form">
+                {!! csrf_field() !!}
+
                 <div class="form-group">
                     <label for="space-name">Name:</label>
                     <input name="space[name]" id="space-name" class="form-control">
@@ -35,6 +37,10 @@
                             <option value="{{ $level->getKey() }}" data-data="{{ json_encode(['icon' => $level->getIcon(), 'description' => $level->getDescription()]) }}">{{ $level->getDisplayName() }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="form-group text-right">
+                    <button class="btn btn-primary btn-sm" form="create-space-form" formaction="" formmethod="POST">Create Space</button>
                 </div>
             </form>
 
