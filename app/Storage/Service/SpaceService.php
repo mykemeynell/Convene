@@ -7,6 +7,7 @@ use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Convene\Storage\Repository\Contract\SpaceRepositoryInterface;
 use Convene\Storage\Service\Contract\SpaceServiceInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
@@ -45,10 +46,19 @@ class SpaceService extends Service implements SpaceServiceInterface
      */
     public function create(ParameterBag $payload): SpaceEntityInterface
     {
+        if(! $payload->has('slug')) {
+            $payload->set('slug', str_slug($payload->get('name')));
+        }
+
         $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
 
         /** @var \Convene\Storage\Entity\SpaceEntity $space */
         $space = $this->getRepository()->create($attributes);
+
+        if($owner = Auth::user()->getKey() && ! empty($owner)) {
+            $space->forceFill(compact('owner'));
+        }
+
         $space->save();
 
         return $space;
