@@ -21,4 +21,14 @@ class SpacesController extends Controller
     {
         return view('spaces');
     }
+
+    /**
+     * Show the create space view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showCreate(): View
+    {
+        return view('spaces.create');
+    }
 }
