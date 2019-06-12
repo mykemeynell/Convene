@@ -1,3 +1,5 @@
+@inject('service', Convene\Storage\Service\Contract\SpaceAccessServiceInterface);
+
 @extends('layouts.page', [
     'page_title' => ['Spaces', 'Create'],
     'body_classes' => 'py-5',
@@ -28,7 +30,9 @@
                 <div class="form-group">
                     <label for="space-access">Access:</label>
                     <select name="space[access]" id="space-access" class="selectize" id="space-access-select">
-
+                        @foreach($service->fetchAll() as $level)
+                            <option value="{{ $level->getKey() }}">{{ $level->getDisplayName() }}</option>
+                        @endforeach
                     </select>
                 </div>
             </form>
