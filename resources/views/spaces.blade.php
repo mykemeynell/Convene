@@ -1,7 +1,7 @@
 @extends('layouts.page', ['page_title' => 'Spaces'])
 
 @push('title_buttons')
-    <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#new-space-modal">Create Space</button>
+    <a href="{{ route('spaces.showCreate') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Create Space</a>
 @endpush
 
 @section('body')
