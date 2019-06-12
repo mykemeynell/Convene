@@ -1,6 +1,8 @@
 @extends('layouts.page', [
     'page_title' => ['Spaces', 'Create'],
+    'body_classes' => 'py-5',
     'show_sidebar' => false,
+    'show_topbar' => false,
 ])
 
 @push('title_buttons')
