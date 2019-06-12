@@ -45,7 +45,13 @@ class SpaceService extends Service implements SpaceServiceInterface
      */
     public function create(ParameterBag $payload): SpaceEntityInterface
     {
-        // TODO: Implement create() method.
+        $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
+
+        /** @var \Convene\Storage\Entity\SpaceEntity $space */
+        $space = $this->getRepository()->create($attributes);
+        $space->save();
+
+        return $space;
     }
 
     /**
@@ -54,10 +60,13 @@ class SpaceService extends Service implements SpaceServiceInterface
      * @param string                                         $id
      * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
      *
-     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface
+     * @return bool
      */
-    public function edit(string $id, ParameterBag $payload): SpaceEntityInterface
+    public function edit(string $id, ParameterBag $payload): bool
     {
-        // TODO: Implement edit() method.
+        $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
+        $space = $this->getRepository()->findUsingId($id);
+
+        return $space->update($attributes);
     }
 }

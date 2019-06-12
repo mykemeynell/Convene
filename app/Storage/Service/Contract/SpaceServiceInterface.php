@@ -37,7 +37,7 @@ interface SpaceServiceInterface extends ServiceInterface
      * @param string                                         $id
      * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
      *
-     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface
+     * @return bool
      */
-    public function edit(string $id, ParameterBag $payload): SpaceEntityInterface;
+    public function edit(string $id, ParameterBag $payload): bool;
 }
