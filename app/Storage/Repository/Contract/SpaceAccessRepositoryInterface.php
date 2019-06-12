@@ -3,21 +3,21 @@
 namespace Convene\Storage\Repository\Contract;
 
 use ArchLayer\Repository\RepositoryInterface;
-use Convene\Storage\Entity\Contract\SpacesAccessEntityInterface;
+use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
 
 /**
  * Interface SpaceAccessRepositoryInterface.
  *
  * @package Convene\Storage\Repository\Contract
  */
-interface SpacesAccessRepositoryInterface extends RepositoryInterface
+interface SpaceAccessRepositoryInterface extends RepositoryInterface
 {
     /**
      * Find a space access entity using the slug.
      *
      * @param string $slug
      *
-     * @return \Convene\Storage\Entity\Contract\SpacesAccessEntityInterface|null
+     * @return \Convene\Storage\Entity\Contract\SpaceAccessEntityInterface|null
      */
-    public function findUsingSlug(string $slug): ?SpacesAccessEntityInterface;
+    public function findUsingSlug(string $slug): ?SpaceAccessEntityInterface;
 }

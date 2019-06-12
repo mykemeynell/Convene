@@ -55,9 +55,9 @@ interface SpaceEntityInterface
     /**
      * Get the Space Access level object.
      *
-     * @return \Convene\Storage\Entity\Contract\SpacesAccessEntityInterface
+     * @return \Convene\Storage\Entity\Contract\SpaceAccessEntityInterface
      */
-    public function access(): SpacesAccessEntityInterface;
+    public function access(): SpaceAccessEntityInterface;
 
     /**
      * Get the owner user object.

@@ -3,7 +3,7 @@
 namespace Convene\Storage\Entity\Contract;
 
 /**
- * Interface SpacesAccessEntityInterface.
+ * Interface SpaceAccessEntityInterface.
  *
  * @property string $name
  * @property string $description
@@ -14,7 +14,7 @@ namespace Convene\Storage\Entity\Contract;
  *
  * @package Convene\Storage\Entity\Contract
  */
-interface SpacesAccessEntityInterface
+interface SpaceAccessEntityInterface
 {
     /**
      * Get the display name.

@@ -28,9 +28,9 @@ class StorageProvider extends ServiceProvider
         'userRole.repository' => [\Convene\Storage\Repository\Contract\UserRoleRepositoryInterface::class],
         'userRole.service' => [\Convene\Storage\Service\Contract\UserRoleServiceInterface::class],
 
-        'spaceAccess.entity'  => [\Convene\Storage\Entity\Contract\SpacesAccessEntityInterface::class],
-        'spaceAccess.repository' => [\Convene\Storage\Repository\Contract\SpacesAccessRepositoryInterface::class],
-        'spaceAccess.service' => [\Convene\Storage\Service\Contract\SpacesAccessServiceInterface::class],
+        'spaceAccess.entity'  => [\Convene\Storage\Entity\Contract\SpaceAccessEntityInterface::class],
+        'spaceAccess.repository' => [\Convene\Storage\Repository\Contract\SpaceAccessRepositoryInterface::class],
+        'spaceAccess.service' => [\Convene\Storage\Service\Contract\SpaceAccessServiceInterface::class],
     ];
 
     /**
@@ -67,7 +67,7 @@ class StorageProvider extends ServiceProvider
     {
          $this->app->singleton('user.repository', \Convene\Storage\Repository\UserRepository::class);
          $this->app->singleton('userRole.repository', \Convene\Storage\Repository\UserRoleRepository::class);
-         $this->app->singleton('spaceAccess.repository', \Convene\Storage\Repository\SpacesAccessRepository::class);
+         $this->app->singleton('spaceAccess.repository', \Convene\Storage\Repository\SpaceAccessRepository::class);
     }
 
     /**
@@ -79,6 +79,6 @@ class StorageProvider extends ServiceProvider
     {
          $this->app->singleton('user.service', \Convene\Storage\Service\UserService::class);
          $this->app->singleton('userRole.service', \Convene\Storage\Service\UserRoleService::class);
-         $this->app->singleton('spaceAccess.service', \Convene\Storage\Service\SpacesAccessService::class);
+         $this->app->singleton('spaceAccess.service', \Convene\Storage\Service\SpaceAccessService::class);
     }
 }

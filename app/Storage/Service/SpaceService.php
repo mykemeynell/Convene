@@ -4,7 +4,7 @@ namespace Convene\Storage\Service;
 
 use ArchLayer\Service\Service;
 use Convene\Storage\Entity\Contract\SpaceEntityInterface;
-use Convene\Storage\Repository\Contract\SpacesRepositoryInterface;
+use Convene\Storage\Repository\Contract\SpaceRepositoryInterface;
 use Convene\Storage\Service\Contract\SpaceServiceInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\HttpFoundation\ParameterBag;
@@ -19,9 +19,9 @@ class SpaceService extends Service implements SpaceServiceInterface
     /**
      * SpaceService constructor.
      *
-     * @param \Convene\Storage\Repository\Contract\SpacesRepositoryInterface $repository
+     * @param \Convene\Storage\Repository\Contract\SpaceRepositoryInterface $repository
      */
-    function __construct(SpacesRepositoryInterface $repository)
+    function __construct(SpaceRepositoryInterface $repository)
     {
         $this->setRepository($repository);
     }

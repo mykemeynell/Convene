@@ -3,7 +3,7 @@
 namespace Convene\Storage\Entity;
 
 use Convene\Storage\Entity\Contract\SpaceEntityInterface;
-use Convene\Storage\Entity\Contract\SpacesAccessEntityInterface;
+use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
 use Convene\Storage\Entity\Contract\UserEntityInterface;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
@@ -99,9 +99,9 @@ class SpaceEntity extends Model implements SpaceEntityInterface
     /**
      * Get the Space Access level object.
      *
-     * @return \Convene\Storage\Entity\Contract\SpacesAccessEntityInterface|Model
+     * @return \Convene\Storage\Entity\Contract\SpaceAccessEntityInterface|Model
      */
-    public function access(): SpacesAccessEntityInterface
+    public function access(): SpaceAccessEntityInterface
     {
         return $this->hasOne(app('spacesAccess.entity'), 'access', 'id')->first();
     }

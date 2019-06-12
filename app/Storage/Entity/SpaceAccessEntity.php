@@ -3,11 +3,16 @@
 namespace Convene\Storage\Entity;
 
 use ArchLayer\Entity\Concern\EntityHasTimestamps;
-use Convene\Storage\Entity\Contract\SpacesAccessEntityInterface;
+use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
 use Illuminate\Database\Eloquent\Model;
 use UuidColumn\Concern\HasUuidObserver;
 
-class SpacesAccessEntity extends Model implements SpacesAccessEntityInterface
+/**
+ * Class SpaceAccessEntity
+ *
+ * @package Convene\Storage\Entity
+ */
+class SpaceAccessEntity extends Model implements SpaceAccessEntityInterface
 {
     use EntityHasTimestamps, HasUuidObserver;
 

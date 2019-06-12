@@ -4,17 +4,17 @@ namespace Convene\Storage\Repository;
 
 use ArchLayer\Repository\Repository;
 use Convene\Storage\Entity\SpaceEntity;
-use Convene\Storage\Repository\Contract\SpacesRepositoryInterface;
+use Convene\Storage\Repository\Contract\SpaceRepositoryInterface;
 
 /**
- * Class SpacesRepository
+ * Class SpaceRepository
  *
  * @package Convene\Storage\Repository
  */
-class SpacesRepository extends Repository implements SpacesRepositoryInterface
+class SpaceRepository extends Repository implements SpaceRepositoryInterface
 {
     /**
-     * SpacesRepository constructor.
+     * SpaceRepository constructor.
      *
      * @param \Convene\Storage\Entity\SpaceEntity|\Illuminate\Database\Eloquent\Model $entity
      */

@@ -5,11 +5,11 @@ namespace Convene\Storage\Repository\Contract;
 use ArchLayer\Repository\RepositoryInterface;
 
 /**
- * Interface SpacesRepositoryInterface
+ * Interface SpaceRepositoryInterface
  *
  * @package Convene\Storage\Repository\Contract
  */
-interface SpacesRepositoryInterface extends RepositoryInterface
+interface SpaceRepositoryInterface extends RepositoryInterface
 {
     //
 }
