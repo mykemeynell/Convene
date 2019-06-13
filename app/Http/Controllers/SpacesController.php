@@ -57,5 +57,7 @@ class SpacesController extends Controller
     public function handleCreate(CreateSpaceRequest $request): RedirectResponse
     {
         $this->getService()->create($request->getParameterBag());
+
+        // TODO: Create redirect response and pass status of creation task back to UI.
     }
 }
