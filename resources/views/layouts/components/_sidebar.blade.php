@@ -25,6 +25,10 @@
             <span>Spaces</span></a>
     </li>
 
+    @if(in_array($route, ['spaces.showSingle']))
+        @include('layouts.components._space-items')
+    @endif
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
