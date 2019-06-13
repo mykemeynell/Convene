@@ -31,6 +31,10 @@ class StorageProvider extends ServiceProvider
         'spaceAccess.entity'  => [\Convene\Storage\Entity\Contract\SpaceAccessEntityInterface::class],
         'spaceAccess.repository' => [\Convene\Storage\Repository\Contract\SpaceAccessRepositoryInterface::class],
         'spaceAccess.service' => [\Convene\Storage\Service\Contract\SpaceAccessServiceInterface::class],
+
+        'space.entity'  => [\Convene\Storage\Entity\Contract\SpaceEntityInterface::class],
+        'space.repository' => [\Convene\Storage\Repository\Contract\SpaceRepositoryInterface::class],
+        'space.service' => [\Convene\Storage\Service\Contract\SpaceServiceInterface::class],
     ];
 
     /**
@@ -56,6 +60,7 @@ class StorageProvider extends ServiceProvider
         $this->app->bind('user.entity', \Convene\Storage\Entity\UserEntity::class);
         $this->app->bind('userRole.entity', \Convene\Storage\Entity\UserRoleEntity::class);
         $this->app->bind('spaceAccess.entity', \Convene\Storage\Entity\SpaceAccessEntity::class);
+        $this->app->bind('space.entity', \Convene\Storage\Entity\SpaceEntity::class);
     }
 
     /**
@@ -68,6 +73,7 @@ class StorageProvider extends ServiceProvider
          $this->app->singleton('user.repository', \Convene\Storage\Repository\UserRepository::class);
          $this->app->singleton('userRole.repository', \Convene\Storage\Repository\UserRoleRepository::class);
          $this->app->singleton('spaceAccess.repository', \Convene\Storage\Repository\SpaceAccessRepository::class);
+         $this->app->singleton('space.repository', \Convene\Storage\Repository\SpaceRepository::class);
     }
 
     /**
@@ -80,5 +86,6 @@ class StorageProvider extends ServiceProvider
          $this->app->singleton('user.service', \Convene\Storage\Service\UserService::class);
          $this->app->singleton('userRole.service', \Convene\Storage\Service\UserRoleService::class);
          $this->app->singleton('spaceAccess.service', \Convene\Storage\Service\SpaceAccessService::class);
+         $this->app->singleton('space.service', \Convene\Storage\Service\SpaceService::class);
     }
 }
