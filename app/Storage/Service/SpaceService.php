@@ -50,15 +50,14 @@ class SpaceService extends Service implements SpaceServiceInterface
             $payload->set('slug', str_slug($payload->get('name')));
         }
 
+        if($owner = Auth::user()->getKey()) {
+            $payload->set('owner', $owner);
+        }
+
         $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
 
         /** @var \Convene\Storage\Entity\SpaceEntity $space */
         $space = $this->getRepository()->create($attributes);
-
-        if($owner = Auth::user()->getKey() && ! empty($owner)) {
-            $space->forceFill(compact('owner'));
-        }
-
         $space->save();
 
         return $space;
