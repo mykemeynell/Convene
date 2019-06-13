@@ -2,6 +2,7 @@
 
 namespace Convene\Http\Controllers;
 
+use Convene\Storage\Service\Contract\SpaceServiceInterface;
 use Convene\Support\Concern\HasService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,6 +16,16 @@ use Illuminate\View\View;
 class SpacesController extends Controller
 {
     use HasService;
+
+    /**
+     * SpacesController constructor.
+     *
+     * @param \Convene\Storage\Service\Contract\SpaceServiceInterface $space_service
+     */
+    function __construct(SpaceServiceInterface $space_service)
+    {
+        $this->setService($space_service);
+    }
 
     /**
      * Show the spaces list view.
