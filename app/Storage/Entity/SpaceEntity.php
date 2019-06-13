@@ -2,11 +2,13 @@
 
 namespace Convene\Storage\Entity;
 
+use Convene\Storage\Entity\Concern\SlugOptions as SlugOptionsConcern;
 use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
 use Convene\Storage\Entity\Contract\UserEntityInterface;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
 use UuidColumn\Concern\HasUuidObserver;
 
 /**
@@ -16,7 +18,14 @@ use UuidColumn\Concern\HasUuidObserver;
  */
 class SpaceEntity extends Model implements SpaceEntityInterface
 {
-    use HasUuidObserver, HasTimestamps;
+    use HasUuidObserver, HasTimestamps, HasSlug, SlugOptionsConcern;
+
+    /**
+     * Field to generate the slug from.
+     *
+     * @var string
+     */
+    public $createSlugFrom = 'name';
 
     /**
      * The table name.

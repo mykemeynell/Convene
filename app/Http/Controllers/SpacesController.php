@@ -56,6 +56,6 @@ class SpacesController extends Controller
      */
     public function handleCreate(CreateSpaceRequest $request): RedirectResponse
     {
-
+        $this->getService()->create($request->getParameterBag());
     }
 }

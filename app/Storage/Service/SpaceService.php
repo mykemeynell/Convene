@@ -46,10 +46,6 @@ class SpaceService extends Service implements SpaceServiceInterface
      */
     public function create(ParameterBag $payload): SpaceEntityInterface
     {
-        if(! $payload->has('slug')) {
-            $payload->set('slug', str_slug($payload->get('name')));
-        }
-
         if($owner = Auth::user()->getKey()) {
             $payload->set('owner', $owner);
         }
