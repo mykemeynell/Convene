@@ -2,10 +2,10 @@
 
 namespace Convene\Http\Controllers;
 
+use Convene\Http\Requests\Space\CreateSpaceRequest;
 use Convene\Storage\Service\Contract\SpaceServiceInterface;
 use Convene\Support\Concern\HasService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
@@ -50,11 +50,11 @@ class SpacesController extends Controller
     /**
      * Handle creation of a new space.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Convene\Http\Requests\Space\CreateSpaceRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function handleCreate(Request $request): RedirectResponse
+    public function handleCreate(CreateSpaceRequest $request): RedirectResponse
     {
 
     }
