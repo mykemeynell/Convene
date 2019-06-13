@@ -6,6 +6,7 @@ use Convene\Http\Requests\Space\CreateSpaceRequest;
 use Convene\Storage\Service\Contract\SpaceServiceInterface;
 use Convene\Support\Concern\HasService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
@@ -59,5 +60,17 @@ class SpacesController extends Controller
         $this->getService()->create($request->getParameterBag());
 
         // TODO: Create redirect response and pass status of creation task back to UI.
+    }
+
+    /**
+     * Show a single space.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showSpace(Request $request): View
+    {
+        return view('spaces.view');
     }
 }
