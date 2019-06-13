@@ -5,13 +5,13 @@ namespace Convene\Http\Requests\Concern;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
- * Trait HasParameterBag
+ * Trait RequestHasParameterBag
  *
  * @method string|array|null input($key = null, $default = null)  Retrieve an input item from the request.
  *
  * @package Convene\Http\Requests\Concern
  */
-trait HasParameterBag
+trait RequestHasParameterBag
 {
     /**
      * The namespace to retrieve payload from.
