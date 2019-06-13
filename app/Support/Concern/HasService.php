@@ -29,6 +29,10 @@ trait HasService {
      */
     protected function setService(ServiceInterface $service, ?string $name = null): Collection
     {
+        if(! $this->services instanceof Collection) {
+            $this->services = collect([]);
+        }
+
         return $this->services->put(self::normalizeName($name), $service);
     }
 
