@@ -2,6 +2,8 @@
 
 namespace Convene\Http\Controllers;
 
+use Convene\Support\Concern\HasService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -12,6 +14,8 @@ use Illuminate\View\View;
  */
 class SpacesController extends Controller
 {
+    use HasService;
+
     /**
      * Show the spaces list view.
      *
@@ -30,5 +34,17 @@ class SpacesController extends Controller
     public function showCreate(): View
     {
         return view('spaces.create');
+    }
+
+    /**
+     * Handle creation of a new space.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function handleCreate(Request $request): RedirectResponse
+    {
+
     }
 }
