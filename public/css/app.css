@@ -10981,3 +10981,8 @@ select.selectize {
   border-radius: 10rem;
 }
 
+.ce-toolbar__content,
+.ce-block__content {
+  max-width: 95%;
+}
+

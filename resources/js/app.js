@@ -30,3 +30,61 @@ require('./includes/toast');
 //     el: '#wrapper',
 // });
 
+import EditorJS from '@editorjs/editorjs';
+import ImageTool from '@editorjs/image';
+import InlineCode from '@editorjs/inline-code';
+import Header  from '@editorjs/header';
+import Embed from '@editorjs/embed';
+import CodeTool from '@editorjs/code';
+
+const editor = new EditorJS({
+    /**
+     * Id of Element that should contain Editor instance
+     */
+    holder: 'codex-editor',
+
+    /**
+     * Available Tools list.
+     * Pass Tool's class or Settings object for each Tool you want to use
+     */
+    tools: {
+        embed: {
+            class: Embed,
+            code: CodeTool,
+            config: {
+                services: {
+                    youtube: true,
+                    coub: true
+                }
+            }
+        },
+        header: {
+            class: Header,
+            config: {
+                placeholder: 'Enter a header'
+            }
+        },
+        inlineCode: {
+            class: InlineCode,
+            shortcut: 'CMD+SHIFT+M',
+        },
+        image: {
+            class: ImageTool,
+            config: {
+                endpoints: {
+                    byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
+                    byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+                }
+            }
+        }
+    }
+});
+
+editor.isReady
+    .then(() => {
+        console.log('Editor.js is ready to work!');
+        /** Do anything you need after editor initialization */
+    })
+    .catch((reason) => {
+        console.log(`Editor.js initialization failed because of ${reason}`);
+    });
