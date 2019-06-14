@@ -36,6 +36,7 @@ import InlineCode from '@editorjs/inline-code';
 import Header  from '@editorjs/header';
 import Embed from '@editorjs/embed';
 import CodeTool from '@editorjs/code';
+import Warning from '@editorjs/warning';
 
 const editor = new EditorJS({
     /**
@@ -76,6 +77,15 @@ const editor = new EditorJS({
                     byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
                 }
             }
+        },
+        warning: {
+            class: Warning,
+            inlineToolbar: true,
+            shortcut: 'CMD+SHIFT+W',
+            config: {
+                titlePlaceholder: 'Title',
+                messagePlaceholder: 'Message',
+            },
         }
     }
 });
