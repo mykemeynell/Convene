@@ -41206,8 +41206,10 @@ $('#js-save-page-button').on('click', function (event) {
   event.preventDefault();
   editor.save().then(function (outputData) {
     console.log('Article data: ', outputData);
-    axios.post($('#space-page-form').attr('action'), {
+    var xhr = axios.post($('#space-page-form').attr('action'), {
       'page': outputData
+    }).then(function (response) {
+      console.log('Save response:', response);
     });
   })["catch"](function (error) {
     console.log('Saving failed: ', error);

@@ -2,6 +2,7 @@
 
 namespace Convene\Http\Controllers;
 
+use Convene\Http\Requests\Page\PostPageRequest;
 use Illuminate\Http\Request;
 
 /**
@@ -14,10 +15,12 @@ class PagesController extends Controller
     /**
      * Handle posting data to pages.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Convene\Http\Requests\Page\PostPageRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function handlePost(Request $request)
+    public function handlePost(PostPageRequest $request)
     {
-        dd($request->all());
+        return response()->json($request->all());
     }
 }

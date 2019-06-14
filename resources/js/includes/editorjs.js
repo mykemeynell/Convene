@@ -76,8 +76,10 @@ $('#js-save-page-button').on('click', (event) => {
     editor.save().then((outputData) => {
         console.log('Article data: ', outputData);
 
-        axios.post($('#space-page-form').attr('action'), {
+        let xhr = axios.post($('#space-page-form').attr('action'), {
             'page': outputData
+        }).then((response) => {
+            console.log('Save response:', response);
         });
     }).catch((error) => {
         console.log('Saving failed: ', error);
