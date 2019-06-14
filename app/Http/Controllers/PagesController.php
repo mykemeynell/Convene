@@ -3,7 +3,6 @@
 namespace Convene\Http\Controllers;
 
 use Convene\Http\Requests\Page\PostPageRequest;
-use Illuminate\Http\Request;
 
 /**
  * Class PagesController
@@ -22,14 +21,15 @@ class PagesController extends Controller
     public function handlePost(PostPageRequest $request)
     {
         $attributes = collect($request->get('page'));
-        $slug = collect($attributes->get('blocks'))->filter(function($item) {
+        $blocks = collect($attributes->get('blocks'));
+        $slug = $title = $blocks->filter(function($item) {
             return $item['type'] == 'header';
-        })->first();
+        })->first()['data']['text'];
 
         if(empty($slug)) {
             return json("Please create at least one header type object", [], 400);
         }
 
-        return json("Page data saved successfully", [], 200);
+        return json("Page data saved successfully", $attributes, 200);
     }
 }

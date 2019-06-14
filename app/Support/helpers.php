@@ -6,12 +6,12 @@ if(! function_exists('json'))
      * Creates a standardised JsonResponse object.
      *
      * @param string $message
-     * @param array  $data
+     * @param mixed  $data
      * @param int    $status
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    function json(string $message, array $data = [], int $status = 200)
+    function json(string $message, $data = null, int $status = 200)
     {
         $success = is_between($status, 200, 299);
 
