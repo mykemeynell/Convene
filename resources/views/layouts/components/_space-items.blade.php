@@ -6,8 +6,8 @@
     Space Name
 </div>
 
-<li class="nav-item">
-    <a class="nav-link" href="#">
+<li class="nav-item @if($route == 'spaces.showActivity') active @endif">
+    <a class="nav-link" href="{{ route('spaces.showActivity', ['space_slug' => $space->getSlug()]) }}">
         <i class="fas fa-fw fa-history"></i>
         <span>Activity</span></a>
 </li>

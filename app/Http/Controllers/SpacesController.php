@@ -50,6 +50,13 @@ class SpacesController extends Controller
         return view('spaces.create');
     }
 
+    public function showActivity(Request $request): View
+    {
+        return view('spaces.activity', [
+            'space' => $this->getService()->findUsingSlug($request->route('space_slug'))
+        ]);
+    }
+
     /**
      * Handle creation of a new space.
      *

@@ -25,7 +25,7 @@
             <span>Spaces</span></a>
     </li>
 
-    @if(in_array($route, ['spaces.showSpace']))
+    @if(in_array($route, ['spaces.showSpace', 'spaces.showActivity']))
         @include('layouts.components._space-items')
     @endif
 
