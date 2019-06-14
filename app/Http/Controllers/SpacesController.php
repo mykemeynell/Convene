@@ -35,7 +35,9 @@ class SpacesController extends Controller
      */
     public function index(): View
     {
-        return view('spaces');
+        return view('spaces', [
+            'spaces' => $this->getService()->list()
+        ]);
     }
 
     /**
