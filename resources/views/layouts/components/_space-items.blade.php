@@ -8,6 +8,12 @@
 
 <li class="nav-item">
     <a class="nav-link" href="#">
+        <i class="fas fa-fw fa-history"></i>
+        <span>Activity</span></a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="#">
         <i class="fas fa-fw fa-file"></i>
         <span>Welcome to Convene</span></a>
 </li>
