@@ -11,5 +11,5 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @stack('styles')
 
-    <title>{{ config()->get('app.name') }}</title>
+    <title>{{ config('app.name') }}</title>
 </head>
