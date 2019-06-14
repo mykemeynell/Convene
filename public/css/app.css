@@ -8295,11 +8295,13 @@ button.bg-dark:focus {
   position: static !important;
 }
 
-.position-relative {
+.position-relative,
+#relative-container {
   position: relative !important;
 }
 
-.position-absolute {
+.position-absolute,
+#convene-space-page-buttons {
   position: absolute !important;
 }
 
@@ -10967,5 +10969,15 @@ a.text-dark:focus {
 
 select.selectize {
   display: none;
+}
+
+#convene-space-page-buttons {
+  z-index: 9999999;
+  right: 15px;
+  top: 0;
+}
+
+.btn.btn-round {
+  border-radius: 10rem;
 }
 

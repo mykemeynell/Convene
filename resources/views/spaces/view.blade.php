@@ -1,7 +1,7 @@
 @inject('service', Convene\Storage\Service\Contract\SpaceAccessServiceInterface)
 
 @extends('layouts.page', [
-    // 'page_title' => ['Spaces', 'View'],
+    'container_id' => 'relative-container'
 ])
 
 {{--@push('title_buttons')--}}
@@ -10,10 +10,12 @@
 
 @section('body')
 
+    <div id="convene-space-page-buttons">
+        <a href="#" class="btn btn-round btn-primary">Edit this page</a>
+    </div>
+
     <!-- Editor wrapper -->
     <div id="convene-space-page-wrapper">
-
-
 
         <div class="container-fluid">
             <div class="row">

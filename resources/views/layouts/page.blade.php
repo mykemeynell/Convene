@@ -20,7 +20,7 @@
             @endif
 
             <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" @if(isset($container_id)) id="{{ $container_id }}" @endif>
 
                     @if(isset($page_title))
                         @include('layouts.components._page-title', ['title' => $page_title])

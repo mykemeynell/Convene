@@ -1,5 +1,20 @@
 select.selectize {display:none;}
 
+#relative-container {
+  @extend .position-relative;
+}
+
+#convene-space-page-buttons {
+  @extend .position-absolute;
+  z-index:9999999;
+  right:15px;
+  top:0;
+}
+
 #convene-space-page-wrapper {
   hr { @extend .my-5; }
+}
+
+.btn.btn-round {
+  border-radius:10rem;
 }
