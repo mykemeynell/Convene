@@ -8575,7 +8575,8 @@ button.bg-dark:focus {
 }
 
 .mt-5,
-.my-5 {
+.my-5,
+#convene-space-page-wrapper hr {
   margin-top: 3rem !important;
 }
 
@@ -8585,7 +8586,8 @@ button.bg-dark:focus {
 }
 
 .mb-5,
-.my-5 {
+.my-5,
+#convene-space-page-wrapper hr {
   margin-bottom: 3rem !important;
 }
 
