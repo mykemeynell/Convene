@@ -18,18 +18,20 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($spaces as $space)
                     <tr>
                         <td>
                             <img src="https://placehold.it/50" alt="Space Icon">
-                            <span>Space name</span>
+                            <span><a href="{{ route('spaces.showActivity', ['space_slug' => $space->getSlug()])  }}">{{ $space->getDisplayName() }}</a></span>
                         </td>
                         <td>
-                            Description of space
+                            {{ $space->getDescription() }}
                         </td>
                         <td align="right">
                             <a href="#" class="btn btn-outline-dark btn-sm">Options</a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
