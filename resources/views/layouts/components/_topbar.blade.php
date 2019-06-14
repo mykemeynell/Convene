@@ -1,5 +1,5 @@
 <!-- Topbar -->
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-{{ isset($topbar_color) ? $topbar_color : 'white' }} topbar mb-4 static-top shadow @if(isset($topbar_classes)) {{ $topbar_classes }} @endif">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

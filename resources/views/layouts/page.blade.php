@@ -10,7 +10,7 @@
     @endif
 
     <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column @if(isset($content_wrapper_classes)) {{ $content_wrapper_classes }} @endif">
 
             <!-- Main Content -->
             <div id="content">
@@ -22,7 +22,9 @@
             <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    @include('layouts.components._page-title', ['title' => $page_title])
+                    @if(isset($page_title))
+                        @include('layouts.components._page-title', ['title' => $page_title])
+                    @endif
 
                     <div class="my-4"></div>
 

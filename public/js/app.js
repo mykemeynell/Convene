@@ -40919,8 +40919,7 @@ if (token) {
  */
 
 
-__webpack_require__(/*! selectize */ "./node_modules/selectize/dist/js/selectize.js"); // $('.selectize').selectize();
-
+__webpack_require__(/*! selectize */ "./node_modules/selectize/dist/js/selectize.js");
 
 $('#space-access').selectize({
   create: true,

@@ -43,8 +43,6 @@ if (token) {
  */
 require('selectize');
 
-// $('.selectize').selectize();
-
 $('#space-access').selectize({
     create: true,
     render: {
@@ -56,4 +54,3 @@ $('#space-access').selectize({
         }
     }
 });
-
