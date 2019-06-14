@@ -2,8 +2,6 @@
 
 @extends('layouts.page', [
     // 'page_title' => ['Spaces', 'View'],
-    'content_wrapper_classes' => 'bg-white',
-    'topbar_color' => 'light',
 ])
 
 {{--@push('title_buttons')--}}
