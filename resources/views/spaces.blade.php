@@ -21,7 +21,7 @@
                     @foreach($spaces as $space)
                     <tr>
                         <td>
-                            <img src="https://placehold.it/50" alt="Space Icon">
+                            <img src="https://placehold.it/50" alt="Space Icon" class="mr-2">
                             <span><a href="{{ route('spaces.showActivity', ['space_slug' => $space->getSlug()])  }}">{{ $space->getDisplayName() }}</a></span>
                         </td>
                         <td>
