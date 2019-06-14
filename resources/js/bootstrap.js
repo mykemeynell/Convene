@@ -54,3 +54,9 @@ $('#space-access').selectize({
         }
     }
 });
+
+/**
+ * Include EditorJs.
+ * We use this to edit page content within spaces.
+ */
+require('./includes/editorjs');

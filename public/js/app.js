@@ -41005,25 +41005,9 @@ $('.js-open-report').on('click', function (event) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @editorjs/editorjs */ "./node_modules/@editorjs/editorjs/dist/editor.js");
-/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _editorjs_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/image */ "./node_modules/@editorjs/image/dist/bundle.js");
-/* harmony import */ var _editorjs_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_editorjs_image__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/inline-code */ "./node_modules/@editorjs/inline-code/dist/bundle.js");
-/* harmony import */ var _editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/bundle.js");
-/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editorjs_header__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _editorjs_embed__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @editorjs/embed */ "./node_modules/@editorjs/embed/dist/bundle.js");
-/* harmony import */ var _editorjs_embed__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_editorjs_embed__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _editorjs_code__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @editorjs/code */ "./node_modules/@editorjs/code/dist/bundle.js");
-/* harmony import */ var _editorjs_code__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_editorjs_code__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _editorjs_warning__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @editorjs/warning */ "./node_modules/@editorjs/warning/dist/bundle.js");
-/* harmony import */ var _editorjs_warning__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_editorjs_warning__WEBPACK_IMPORTED_MODULE_6__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -41054,74 +41038,6 @@ __webpack_require__(/*! ./includes/toast */ "./resources/js/includes/toast.js");
 // const app = new Vue({
 //     el: '#wrapper',
 // });
-
-
-
-
-
-
-
-
-
-var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a({
-  /**
-   * Id of Element that should contain Editor instance
-   */
-  holder: 'codex-editor',
-
-  /**
-   * Available Tools list.
-   * Pass Tool's class or Settings object for each Tool you want to use
-   */
-  tools: {
-    embed: {
-      "class": _editorjs_embed__WEBPACK_IMPORTED_MODULE_4___default.a,
-      code: _editorjs_code__WEBPACK_IMPORTED_MODULE_5___default.a,
-      config: {
-        services: {
-          youtube: true,
-          coub: true
-        }
-      }
-    },
-    header: {
-      "class": _editorjs_header__WEBPACK_IMPORTED_MODULE_3___default.a,
-      config: {
-        placeholder: 'Enter a header'
-      }
-    },
-    inlineCode: {
-      "class": _editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2___default.a,
-      shortcut: 'CMD+SHIFT+M'
-    },
-    image: {
-      "class": _editorjs_image__WEBPACK_IMPORTED_MODULE_1___default.a,
-      config: {
-        endpoints: {
-          byFile: 'http://localhost:8008/uploadFile',
-          // Your backend file uploader endpoint
-          byUrl: 'http://localhost:8008/fetchUrl' // Your endpoint that provides uploading by Url
-
-        }
-      }
-    },
-    warning: {
-      "class": _editorjs_warning__WEBPACK_IMPORTED_MODULE_6___default.a,
-      inlineToolbar: true,
-      shortcut: 'CMD+SHIFT+W',
-      config: {
-        titlePlaceholder: 'Title',
-        messagePlaceholder: 'Message'
-      }
-    }
-  }
-});
-editor.isReady.then(function () {
-  console.log('Editor.js is ready to work!');
-  /** Do anything you need after editor initialization */
-})["catch"](function (reason) {
-  console.log("Editor.js initialization failed because of ".concat(reason));
-});
 
 /***/ }),
 
@@ -41184,6 +41100,118 @@ $('#space-access').selectize({
       return '<div class="option py-3" data-selectable="" data-value="' + data.value + '">' + '<i class="' + data.icon + ' mr-2"></i><strong>' + data.text + '</strong><br>' + data.description + '</div>';
     }
   }
+});
+/**
+ * Include EditorJs.
+ * We use this to edit page content within spaces.
+ */
+
+__webpack_require__(/*! ./includes/editorjs */ "./resources/js/includes/editorjs.js");
+
+/***/ }),
+
+/***/ "./resources/js/includes/editorjs.js":
+/*!*******************************************!*\
+  !*** ./resources/js/includes/editorjs.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @editorjs/editorjs */ "./node_modules/@editorjs/editorjs/dist/editor.js");
+/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _editorjs_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/image */ "./node_modules/@editorjs/image/dist/bundle.js");
+/* harmony import */ var _editorjs_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_editorjs_image__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/inline-code */ "./node_modules/@editorjs/inline-code/dist/bundle.js");
+/* harmony import */ var _editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/bundle.js");
+/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editorjs_header__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editorjs_embed__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @editorjs/embed */ "./node_modules/@editorjs/embed/dist/bundle.js");
+/* harmony import */ var _editorjs_embed__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_editorjs_embed__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _editorjs_code__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @editorjs/code */ "./node_modules/@editorjs/code/dist/bundle.js");
+/* harmony import */ var _editorjs_code__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_editorjs_code__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _editorjs_warning__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @editorjs/warning */ "./node_modules/@editorjs/warning/dist/bundle.js");
+/* harmony import */ var _editorjs_warning__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_editorjs_warning__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a({
+  /**
+   * Id of Element that should contain Editor instance
+   */
+  holder: 'codex-editor',
+
+  /**
+   * Available Tools list.
+   * Pass Tool's class or Settings object for each Tool you want to use
+   */
+  tools: {
+    embed: {
+      "class": _editorjs_embed__WEBPACK_IMPORTED_MODULE_4___default.a,
+      shortcut: 'CMD+ALT+E',
+      code: _editorjs_code__WEBPACK_IMPORTED_MODULE_5___default.a,
+      config: {
+        services: {
+          youtube: true,
+          coub: true
+        }
+      }
+    },
+    header: {
+      "class": _editorjs_header__WEBPACK_IMPORTED_MODULE_3___default.a,
+      shortcut: 'CMD+ALT+H',
+      config: {
+        placeholder: 'Enter a header'
+      }
+    },
+    inlineCode: {
+      shortcut: 'CMD+ALT+C',
+      "class": _editorjs_inline_code__WEBPACK_IMPORTED_MODULE_2___default.a
+    },
+    image: {
+      "class": _editorjs_image__WEBPACK_IMPORTED_MODULE_1___default.a,
+      shortcut: 'CMD+ALT+I',
+      config: {
+        endpoints: {
+          byFile: 'http://localhost:8008/uploadFile',
+          // Your backend file uploader endpoint
+          byUrl: 'http://localhost:8008/fetchUrl' // Your endpoint that provides uploading by Url
+
+        }
+      }
+    },
+    warning: {
+      shortcut: 'CMD+ALT+W',
+      "class": _editorjs_warning__WEBPACK_IMPORTED_MODULE_6___default.a,
+      inlineToolbar: true,
+      config: {
+        titlePlaceholder: 'Title',
+        messagePlaceholder: 'Message'
+      }
+    }
+  }
+});
+editor.isReady.then(function () {
+  console.log('Editor.js is ready to work!');
+  /** Do anything you need after editor initialization */
+})["catch"](function (reason) {
+  console.log("Editor.js initialization failed because of ".concat(reason));
+});
+$('#js-save-page-button').on('click', function (event) {
+  event.preventDefault();
+  editor.save().then(function (outputData) {
+    console.log('Article data: ', outputData);
+    axios.post($('#space-page-form').attr('action'), {
+      'page': outputData
+    });
+  })["catch"](function (error) {
+    console.log('Saving failed: ', error);
+  });
 });
 
 /***/ }),

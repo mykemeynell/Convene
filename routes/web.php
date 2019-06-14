@@ -28,6 +28,7 @@ $router->group($options, function () use ($router) {
     $router->get('/spaces', 'SpacesController@index')->name('spaces.view');
     $router->get('/spaces/create', 'SpacesController@showCreate')->name('spaces.showCreate');
     $router->post('/spaces/create', 'SpacesController@handleCreate')->name('spaces.handleCreate');
+    $router->post('/spaces/post', 'PagesController@handlePost')->name('page.handlePost');
 
     $router->get('/spaces/{space_slug}/{page_slug?}', 'SpacesController@showSpace')->name('spaces.showSpace');
 });
