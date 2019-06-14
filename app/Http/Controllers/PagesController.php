@@ -21,6 +21,15 @@ class PagesController extends Controller
      */
     public function handlePost(PostPageRequest $request)
     {
-        return response()->json($request->all());
+        $attributes = collect($request->get('page'));
+        $slug = collect($attributes->get('blocks'))->filter(function($item) {
+            return $item['type'] == 'header';
+        })->first();
+
+        if(empty($slug)) {
+            return json("Please create at least one header type object", [], 400);
+        }
+
+        return json("Page data saved successfully", [], 200);
     }
 }
