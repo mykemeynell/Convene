@@ -74,4 +74,16 @@ class SpaceService extends Service implements SpaceServiceInterface
 
         return $space->update($attributes);
     }
+
+    /**
+     * Find a space using its slug.
+     *
+     * @param string $slug
+     *
+     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingSlug(string $slug): ?SpaceEntityInterface
+    {
+        return $this->getRepository()->builder()->where('slug', $slug)->first();
+    }
 }

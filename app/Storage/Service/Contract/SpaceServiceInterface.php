@@ -40,4 +40,13 @@ interface SpaceServiceInterface extends ServiceInterface
      * @return bool
      */
     public function edit(string $id, ParameterBag $payload): bool;
+
+    /**
+     * Find a space using its slug.
+     *
+     * @param string $slug
+     *
+     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface|null
+     */
+    public function findUsingSlug(string $slug): ?SpaceEntityInterface;
 }
