@@ -34,7 +34,7 @@ class SpaceService extends Service implements SpaceServiceInterface
      */
     public function list(): Collection
     {
-        // TODO: Implement list() method.
+        return $this->getRepository()->builder()->get();
     }
 
     /**
