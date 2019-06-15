@@ -73,9 +73,14 @@ class SpacesController extends Controller
      */
     public function handleCreate(CreateSpaceRequest $request): RedirectResponse
     {
-        $this->getService()->create($request->getParameterBag());
+        try {
+            /** @var \Convene\Storage\Entity\SpaceEntity $space */
+            $space = $this->getService()->create($request->getParameterBag());
 
-        // TODO: Create redirect response and pass status of creation task back to UI.
+            return redirect()->route('spaces.showActivity', ['space_slug' => $space->getSlug()]);
+        } catch(\Exception $exception) {
+            return redirect()->route('spaces.showCreate');
+        }
     }
 
     /**
