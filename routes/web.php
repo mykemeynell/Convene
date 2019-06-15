@@ -34,7 +34,7 @@ $router->group($options, function () use ($router) {
     $router->get('/spaces/{space_slug}/create', 'PagesController@showCreate')->name('page.showCreate');
     $router->post('/spaces/{space_slug}/create', 'PagesController@handleCreate')->name('page.handleCreate');
     $router->post('/spaces/{space_slug}/{page_slug}/update', 'PagesController@handleUpdate')->name('page.handleUpdate');
-    $router->get('/spaces/{space_slug}/{page_slug?}', 'PagesController@showPage')->name('page.showSpace');
+    $router->get('/spaces/{space_slug}/{page_slug}', 'PagesController@showPage')->name('page.showSpace');
 
     $router->group(['prefix' => 'api'], function() use ($router) {
         $router->get('/fetch', 'ApiController@fetchUrlMeta')->name('api.fetchUrl');
