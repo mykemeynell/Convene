@@ -58,6 +58,13 @@ class ApiController extends Controller
         return response()->json(compact('success', 'meta'));
     }
 
+    /**
+     * Upload a file to Convene.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function uploadFile(Request $request): JsonResponse
     {
         /** @var \Illuminate\Http\UploadedFile $file */
