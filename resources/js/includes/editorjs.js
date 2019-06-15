@@ -5,6 +5,7 @@ import Header  from '@editorjs/header';
 import Embed from '@editorjs/embed';
 import CodeTool from '@editorjs/code';
 import Warning from '@editorjs/warning';
+import LinkTool from '@editorjs/link';
 
 const editor = new EditorJS({
     /**
@@ -43,8 +44,11 @@ const editor = new EditorJS({
             class: ImageTool,
             shortcut: 'CMD+ALT+I',
             config: {
+                additionalRequestHeaders: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 endpoints: {
-                    byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
+                    byFile: '/api/uploadFile', // Your backend file uploader endpoint
                     byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
                 }
             }
@@ -57,6 +61,12 @@ const editor = new EditorJS({
                 titlePlaceholder: 'Title',
                 messagePlaceholder: 'Message',
             },
+        },
+        linkTool: {
+            class: LinkTool,
+            config: {
+                endpoint: '/api/fetch', // Your backend endpoint for url data fetching
+            }
         }
     }
 });

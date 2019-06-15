@@ -20,6 +20,7 @@ $options = [
     'middleware' => ['web', 'auth',],
 ];
 
+
 $router->group($options, function () use ($router) {
     $router->get('/', 'DefaultController@redirect'); // Redirect users to default url.
 
@@ -35,6 +36,9 @@ $router->group($options, function () use ($router) {
     $router->post('/spaces/{space_slug}/{page_slug}/update', 'PagesController@handleUpdate')->name('page.handleUpdate');
     $router->get('/spaces/{space_slug}/{page_slug?}', 'PagesController@showPage')->name('page.showSpace');
 
+    $router->group(['prefix' => 'api'], function() use ($router) {
+        $router->get('/fetch', 'ApiController@fetchUrlMeta')->name('api.fetchUrl');
+        $router->post('/uploadFile', 'ApiController@uploadFile')->name('api.uploadFile');
+        $router->post('/uploadUrl', 'ApiController@uploadUrl')->name('api.uploadUrl');
+    });
 });
-
-
