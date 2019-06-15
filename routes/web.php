@@ -21,18 +21,19 @@ $options = [
 ];
 
 $router->group($options, function () use ($router) {
-    $router->get('/', function() { return redirect()->route('default.view'); }); // Redirect users to default url.
+    $router->get('/', 'DefaultController@redirect'); // Redirect users to default url.
 
     $router->get('/default', 'DefaultViewController@index')->name('default.view');
 
     $router->get('/spaces', 'SpacesController@index')->name('spaces.view');
-    $router->get('/spaces/{space_slug}', 'SpacesController@showActivity')->name('spaces.showActivity');
-
     $router->get('/spaces/create', 'SpacesController@showCreate')->name('spaces.showCreate');
     $router->post('/spaces/create', 'SpacesController@handleCreate')->name('spaces.handleCreate');
+    $router->get('/spaces/{space_slug}', 'SpacesController@showActivity')->name('spaces.showActivity');
+    $router->get('/spaces/{space_slug}/{page_slug?}', 'SpacesController@showSpace')->name('spaces.showSpace');
+
+
     $router->post('/spaces/post', 'PagesController@handlePost')->name('page.handlePost');
 
-    $router->get('/spaces/{space_slug}/{page_slug?}', 'SpacesController@showSpace')->name('spaces.showSpace');
 });
 
 
