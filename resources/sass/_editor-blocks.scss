@@ -65,3 +65,11 @@
     @extend .ml-3;
   }
 }
+
+.block-image {
+  .caption {
+    max-width:200px;
+  }
+}
+
+

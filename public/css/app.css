@@ -11016,6 +11016,10 @@ a.block-warning:focus {
   max-height: 100%;
 }
 
+.block-image .caption {
+  max-width: 200px;
+}
+
 select.selectize {
   display: none;
 }
