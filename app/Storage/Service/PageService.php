@@ -6,6 +6,7 @@ use ArchLayer\Service\Service;
 use Convene\Storage\Entity\Contract\PageEntityInterface;
 use Convene\Storage\Repository\Contract\PageRepositoryInterface;
 use Convene\Storage\Service\Contract\PageServiceInterface;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class PageService.
@@ -46,5 +47,23 @@ class PageService extends Service implements PageServiceInterface
     public function findUsingSlug(string $slug): PageEntityInterface
     {
         return $this->getRepository()->findUsingSlug($slug);
+    }
+
+    /**
+     * Create a new page.
+     *
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     */
+    public function create(ParameterBag $payload): PageEntityInterface
+    {
+        $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
+
+        /** @var \Convene\Storage\Entity\PageEntity $page */
+        $page = $this->getRepository()->create($attributes);
+        $page->save();
+
+        return $page;
     }
 }

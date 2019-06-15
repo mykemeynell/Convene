@@ -40,8 +40,7 @@ class PagesController extends Controller
      */
     public function handleCreate(PostPageRequest $request)
     {
-        $attributes = collect($request->get('page'));
-        $blocks = collect($attributes->get('blocks'));
+        $blocks = collect($request->get('page')['blocks']);
         $title = $blocks->filter(function($item) {
             return $item['type'] == 'header';
         })->first()['data']['text'];
@@ -52,14 +51,21 @@ class PagesController extends Controller
 
         $space_id = $this->getService('space')->findUsingSlug($request->route('space_slug'))->getKey();
 
-        $payload = [
-            'space_id' => $space_id,
-            'folder_id' => '',
-            'title' => $title,
-            'content' => json_encode($blocks),
-        ];
+        try {
+            $payload = [
+                'space_id' => $space_id,
+                'folder_id' => null,
+                'title' => $title,
+                'content' => json_encode($blocks),
+            ];
 
-        return json("Page data saved successfully", $payload, 200);
+            /** @var \Convene\Storage\Entity\PageEntity $page */
+            $page = $this->getService('page')->create(new ParameterBag($payload));
+
+            return json("Page data saved successfully", $page, 200);
+        } catch(\Exception $exception) {
+            return json("Failed to save data because: {$exception->getMessage()}", [], 500);
+        }
     }
 
     /**

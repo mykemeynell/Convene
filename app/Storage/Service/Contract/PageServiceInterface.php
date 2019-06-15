@@ -4,6 +4,7 @@ namespace Convene\Storage\Service\Contract;
 
 use ArchLayer\Service\Contract\ServiceInterface;
 use Convene\Storage\Entity\Contract\PageEntityInterface;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Interface PageServiceInterface
@@ -29,4 +30,13 @@ interface PageServiceInterface extends ServiceInterface
      * @return \Convene\Storage\Entity\Contract\PageEntityInterface
      */
     public function findUsingSlug(string $slug): PageEntityInterface;
+
+    /**
+     * Create a new page.
+     *
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     */
+    public function create(ParameterBag $payload): PageEntityInterface;
 }
