@@ -29,11 +29,11 @@ class PageService extends Service implements PageServiceInterface
      *
      * @param string $id
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model
      */
     public function findUsingId(string $id): PageEntityInterface
     {
-        // TODO: Implement findUsingId() method.
+        return $this->getRepository()->findUsingId($id);
     }
 
     /**
@@ -41,10 +41,10 @@ class PageService extends Service implements PageServiceInterface
      *
      * @param string $slug
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model
      */
     public function findUsingSlug(string $slug): PageEntityInterface
     {
-        // TODO: Implement findUsingSlug() method.
+        return $this->getRepository()->findUsingSlug($slug);
     }
 }
