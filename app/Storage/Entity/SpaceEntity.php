@@ -6,6 +6,7 @@ use Convene\Storage\Entity\Concern\SlugOptions as SlugOptionsConcern;
 use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
 use Convene\Storage\Entity\Contract\UserEntityInterface;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -123,5 +124,15 @@ class SpaceEntity extends Model implements SpaceEntityInterface
     public function owner(): UserEntityInterface
     {
         return $this->hasOne(app('user.entity'), 'owner', 'id')->first();
+    }
+
+    /**
+     * Get items that belong to a space.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     */
+    public function items(): Collection
+    {
+        return $this->hasMany(app('page.entity'), 'space_id', 'id')->get();
     }
 }

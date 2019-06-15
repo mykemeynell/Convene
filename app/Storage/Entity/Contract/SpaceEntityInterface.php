@@ -2,6 +2,8 @@
 
 namespace Convene\Storage\Entity\Contract;
 
+use Illuminate\Database\Eloquent\Collection;
+
 /**
  * Interface SpaceEntityInterface
  *
@@ -65,4 +67,11 @@ interface SpaceEntityInterface
      * @return \Convene\Storage\Entity\Contract\UserEntityInterface
      */
     public function owner(): UserEntityInterface;
+
+    /**
+     * Get items that belong to a space.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     */
+    public function items(): Collection;
 }
