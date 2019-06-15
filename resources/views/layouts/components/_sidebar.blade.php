@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('default.view') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('spaces.view') }}">
         <div class="sidebar-brand-icon">
             <img src="{{ asset('images/logo/logo-white.svg') }}" width="39" alt="Convene Logo">
         </div>
@@ -13,11 +13,11 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Activity -->
-    <li class="nav-item @if(in_array($route, ['default.view'])) active @endif">
-        <a class="nav-link" href="{{ route('default.view') }}">
-            <i class="fas fa-fw fa-briefcase"></i>
-            <span>Activity</span></a>
-    </li>
+    {{--<li class="nav-item @if(in_array($route, ['spaces.view'])) active @endif">--}}
+        {{--<a class="nav-link" href="{{ route('spaces.view') }}">--}}
+            {{--<i class="fas fa-fw fa-briefcase"></i>--}}
+            {{--<span>Activity</span></a>--}}
+    {{--</li>--}}
 
     <li class="nav-item @if(in_array($route, ['spaces.view'])) active @endif">
         <a class="nav-link" href="{{ route('spaces.view') }}">

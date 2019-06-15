@@ -18,6 +18,6 @@ class DefaultController extends Controller
      */
     public function redirect(): RedirectResponse
     {
-        return redirect()->route('default.view');
+        return redirect()->route('spaces.view');
     }
 }
