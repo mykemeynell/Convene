@@ -78,20 +78,8 @@ class SpacesController extends Controller
             $space = $this->getService()->create($request->getParameterBag());
 
             return redirect()->route('spaces.showActivity', ['space_slug' => $space->getSlug()]);
-        } catch(\Exception $exception) {
+        } catch (\Exception $exception) {
             return redirect()->route('spaces.showCreate');
         }
-    }
-
-    /**
-     * Show a single space.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showSpace(Request $request): View
-    {
-        return view('spaces.view');
     }
 }

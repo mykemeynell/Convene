@@ -60,7 +60,7 @@ trait HasService {
      */
     private static function normalizeName(?string $name = null): string
     {
-        return ! empty($name)
+        return ! empty($name) && function_exists('normalizer_normalize')
             ? normalizer_normalize($name)
             : 'default';
     }

@@ -35,6 +35,10 @@ class StorageProvider extends ServiceProvider
         'space.entity'  => [\Convene\Storage\Entity\Contract\SpaceEntityInterface::class],
         'space.repository' => [\Convene\Storage\Repository\Contract\SpaceRepositoryInterface::class],
         'space.service' => [\Convene\Storage\Service\Contract\SpaceServiceInterface::class],
+
+        'page.entity'  => [\Convene\Storage\Entity\Contract\PageEntityInterface::class],
+        'page.repository' => [\Convene\Storage\Repository\Contract\PageRepositoryInterface::class],
+        'page.service' => [\Convene\Storage\Service\Contract\PageServiceInterface::class],
     ];
 
     /**
@@ -61,6 +65,7 @@ class StorageProvider extends ServiceProvider
         $this->app->bind('userRole.entity', \Convene\Storage\Entity\UserRoleEntity::class);
         $this->app->bind('spaceAccess.entity', \Convene\Storage\Entity\SpaceAccessEntity::class);
         $this->app->bind('space.entity', \Convene\Storage\Entity\SpaceEntity::class);
+        $this->app->bind('page.entity', \Convene\Storage\Entity\PageEntity::class);
     }
 
     /**
@@ -74,6 +79,7 @@ class StorageProvider extends ServiceProvider
          $this->app->singleton('userRole.repository', \Convene\Storage\Repository\UserRoleRepository::class);
          $this->app->singleton('spaceAccess.repository', \Convene\Storage\Repository\SpaceAccessRepository::class);
          $this->app->singleton('space.repository', \Convene\Storage\Repository\SpaceRepository::class);
+         $this->app->singleton('page.repository', \Convene\Storage\Repository\PageRepository::class);
     }
 
     /**
@@ -87,5 +93,6 @@ class StorageProvider extends ServiceProvider
          $this->app->singleton('userRole.service', \Convene\Storage\Service\UserRoleService::class);
          $this->app->singleton('spaceAccess.service', \Convene\Storage\Service\SpaceAccessService::class);
          $this->app->singleton('space.service', \Convene\Storage\Service\SpaceService::class);
+         $this->app->singleton('page.service', \Convene\Storage\Service\PageService::class);
     }
 }

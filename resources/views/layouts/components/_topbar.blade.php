@@ -41,10 +41,15 @@
             </div>
         </li>
 
-        <ul class="list-unstyled my-auto mr-3 list-group-horizontal">
-            <li>
+        <ul class="list-unstyled my-auto mr-3 list-inline">
+            <li class="list-inline-item">
                 <a id="js-save-page-button" href="#" class="btn btn-outline-primary btn-round">Save Changes</a>
             </li>
+            @if(! in_array($route, ['page.showCreate']))
+            <li class="list-inline-item">
+                <a id="" href="{{ route('page.showCreate', ['space_slug' => $space->getSlug()]) }}" class="btn btn-outline-primary btn-round">New Page</a>
+            </li>
+            @endif
         </ul>
 
         <!-- Nav Item - Alerts -->
