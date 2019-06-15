@@ -42706,6 +42706,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var dataContainer = $('#editor-data');
+var initialData = "";
+
+if (dataContainer.length === 1) {
+  initialData = $.parseJSON(dataContainer.val());
+} else {
+  initialData = {};
+}
+
+console.log(initialData);
 var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a({
   /**
    * Id of Element that should contain Editor instance
@@ -42769,7 +42779,7 @@ var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a({
     }
   },
   data: {
-    'blocks': [$('#editor-data').val()]
+    'blocks': initialData
   }
 });
 editor.isReady.then(function () {

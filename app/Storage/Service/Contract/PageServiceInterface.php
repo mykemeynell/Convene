@@ -18,25 +18,25 @@ interface PageServiceInterface extends ServiceInterface
      *
      * @param string $id
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|null
      */
-    public function findUsingId(string $id): PageEntityInterface;
+    public function findUsingId(string $id): ?PageEntityInterface;
 
     /**
      * Find a page using the slug.
      *
      * @param string $slug
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|null
      */
-    public function findUsingSlug(string $slug): PageEntityInterface;
+    public function findUsingSlug(string $slug): ?PageEntityInterface;
 
     /**
      * Create a new page.
      *
      * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|null
      */
-    public function create(ParameterBag $payload): PageEntityInterface;
+    public function create(ParameterBag $payload): ?PageEntityInterface;
 }

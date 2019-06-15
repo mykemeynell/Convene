@@ -7,7 +7,17 @@ import CodeTool from '@editorjs/code';
 import Warning from '@editorjs/warning';
 import LinkTool from '@editorjs/link';
 
-let editor = new EditorJS({
+let dataContainer = $('#editor-data');
+let initialData = "";
+if(dataContainer.length === 1) {
+    initialData = $.parseJSON(dataContainer.val());
+} else {
+    initialData = {};
+}
+
+console.log(initialData);
+
+const editor = new EditorJS({
     /**
      * Id of Element that should contain Editor instance
      */
@@ -68,7 +78,7 @@ let editor = new EditorJS({
             }
         }
     },
-    data: {'blocks': [$('#editor-data').val()]}
+    data: {'blocks': initialData}
 });
 
 editor.isReady

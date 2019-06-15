@@ -17,7 +17,7 @@ interface PageRepositoryInterface extends RepositoryInterface
      *
      * @param string $slug
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|null
      */
-    public function findUsingSlug(string $slug): PageEntityInterface;
+    public function findUsingSlug(string $slug): ?PageEntityInterface;
 }

@@ -28,9 +28,9 @@ class PageRepository extends Repository implements PageRepositoryInterface
      *
      * @param string $slug
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model|null
      */
-    public function findUsingSlug(string $slug): PageEntityInterface
+    public function findUsingSlug(string $slug): ?PageEntityInterface
     {
         return $this->builder()->where('slug', $slug)->first();
     }

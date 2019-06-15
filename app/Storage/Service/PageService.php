@@ -30,9 +30,9 @@ class PageService extends Service implements PageServiceInterface
      *
      * @param string $id
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model|null
      */
-    public function findUsingId(string $id): PageEntityInterface
+    public function findUsingId(string $id): ?PageEntityInterface
     {
         return $this->getRepository()->findUsingId($id);
     }
@@ -42,9 +42,9 @@ class PageService extends Service implements PageServiceInterface
      *
      * @param string $slug
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|\Illuminate\Database\Eloquent\Model|null
      */
-    public function findUsingSlug(string $slug): PageEntityInterface
+    public function findUsingSlug(string $slug): ?PageEntityInterface
     {
         return $this->getRepository()->findUsingSlug($slug);
     }
@@ -54,9 +54,9 @@ class PageService extends Service implements PageServiceInterface
      *
      * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
      *
-     * @return \Convene\Storage\Entity\Contract\PageEntityInterface
+     * @return \Convene\Storage\Entity\Contract\PageEntityInterface|null
      */
-    public function create(ParameterBag $payload): PageEntityInterface
+    public function create(ParameterBag $payload): ?PageEntityInterface
     {
         $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
 
