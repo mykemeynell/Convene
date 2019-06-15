@@ -3,7 +3,7 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Space Name
+    {{ $space->getDisplayName() }}
 </div>
 
 <li class="nav-item @if($route == 'spaces.showActivity') active @endif">
