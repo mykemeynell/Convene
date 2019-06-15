@@ -33,7 +33,7 @@ $router->group($options, function () use ($router) {
     $router->get('/spaces/{space_slug}/page/create', 'PagesController@showCreate')->name('page.showCreate');
     $router->post('/spaces/{space_slug}/page/create', 'PagesController@handleCreate')->name('page.handleCreate');
     $router->post('/spaces/{space_slug}/{page_slug}/update', 'PagesController@handleUpdate')->name('page.handleUpdate');
-    $router->get('/spaces/{space_slug}/{page_slug?}', 'PagesController@showSpace')->name('page.showSpace');
+    $router->get('/spaces/{space_slug}/{page_slug?}', 'PagesController@showPage')->name('page.showSpace');
 
 });
 
