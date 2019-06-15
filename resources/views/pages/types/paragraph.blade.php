@@ -1,1 +1,1 @@
-<p>{{ $block['data']['text']}}</p>
+<p>{!! $block['data']['text'] !!}</p>
