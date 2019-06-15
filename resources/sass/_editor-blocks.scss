@@ -2,7 +2,7 @@
   @extend .d-flex;
   @extend .p-2;
   @extend .mx-0;
-  @extend .my-4;
+  @extend .my-5;
   @extend .rounded;
   background: #fff9ef;
   @extend .text-dark;
@@ -28,7 +28,7 @@
   @extend .position-relative;
   @extend .d-flex;
   @extend .bg-white;
-  @extend .mb-5;
+  @extend .my-5;
   @extend .rounded;
   @extend .shadow;
   @extend .p-3;
@@ -70,6 +70,18 @@
   .caption {
     max-width:200px;
   }
+}
+
+.block-paragraph__element {
+  @extend .mb-5;
+
+  &:last-of-type {
+    @extend .mb-0;
+  }
+}
+
+.block-header__element {
+  @extend .mb-3;
 }
 
 
