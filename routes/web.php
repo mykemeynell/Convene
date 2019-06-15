@@ -23,7 +23,7 @@ $options = [
 
 $router->group($options, function () use ($router) {
     $router->get('/', 'DefaultController@redirect'); // Redirect users to default url.
-    
+
     $router->get('/spaces', 'SpacesController@index')->name('spaces.view');
     $router->get('/spaces/create', 'SpacesController@showCreate')->name('spaces.showCreate');
     $router->post('/spaces/create', 'SpacesController@handleCreate')->name('spaces.handleCreate');
@@ -31,6 +31,8 @@ $router->group($options, function () use ($router) {
 
     $router->get('/spaces/{space_slug}/create', 'PagesController@showCreate')->name('page.showCreate');
     $router->post('/spaces/{space_slug}/create', 'PagesController@handleCreate')->name('page.handleCreate');
+
+    $router->get('/spaces/{space_slug}/{page_slug}/edit', 'PagesController@showEdit')->name('page.showEdit');
     $router->post('/spaces/{space_slug}/{page_slug}/update', 'PagesController@handleUpdate')->name('page.handleUpdate');
     $router->get('/spaces/{space_slug}/{page_slug}', 'PagesController@showPage')->name('page.showSpace');
 

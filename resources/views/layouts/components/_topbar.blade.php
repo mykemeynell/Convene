@@ -53,6 +53,12 @@
                 <a id="" href="{{ route('page.showCreate', ['space_slug' => $space->getSlug()]) }}" class="btn btn-outline-primary btn-round">New Page</a>
             </li>
             @endif
+
+            @if(in_array($route, ['page.showSpace']))
+            <li class="list-inline-item">
+                <a id="" href="{{ route('page.showEdit', ['space_slug' => $space->getSlug(), 'page_slug' => $page->getSlug()]) }}" class="btn btn-outline-primary btn-round">Edit Page</a>
+            </li>
+            @endif
         </ul>
 
         <!-- Nav Item - Alerts -->

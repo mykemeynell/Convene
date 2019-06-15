@@ -7,7 +7,7 @@ import CodeTool from '@editorjs/code';
 import Warning from '@editorjs/warning';
 import LinkTool from '@editorjs/link';
 
-const editor = new EditorJS({
+let editor = new EditorJS({
     /**
      * Id of Element that should contain Editor instance
      */
@@ -67,7 +67,8 @@ const editor = new EditorJS({
                 endpoint: '/api/fetch', // Your backend endpoint for url data fetching
             }
         }
-    }
+    },
+    data: {'blocks': [$('#editor-data').val()]}
 });
 
 editor.isReady

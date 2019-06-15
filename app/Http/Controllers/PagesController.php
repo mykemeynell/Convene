@@ -121,4 +121,26 @@ class PagesController extends Controller
 
         return view('pages.view', compact('space', 'page'));
     }
+
+    public function showEdit(Request $request): View
+    {
+        /** @var \Convene\Storage\Entity\SpaceEntity $space */
+        $space = $this->getService('space')->findUsingSlug(
+            $request->route('space_slug')
+        );
+
+        if(empty($space))
+            return abort(404);
+
+        /** @var \Convene\Storage\Entity\PageEntity $page */
+        $page = $this->getService('page')->findUsingSlug(
+            $request->route('page_slug')
+        );
+
+        if(empty($page) || $page->getSpaceId() !== $space->getKey())
+            return abort(404);
+
+        return view('pages.editor', compact('space', 'page'));
+
+    }
 }

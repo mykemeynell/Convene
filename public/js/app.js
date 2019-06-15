@@ -42767,6 +42767,9 @@ var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a({
 
       }
     }
+  },
+  data: {
+    'blocks': [$('#editor-data').val()]
   }
 });
 editor.isReady.then(function () {
