@@ -79,12 +79,19 @@ class PagesController extends Controller
     {
     }
 
+    /**
+     * Show the create/edit page view.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\View\View
+     */
     public function showCreate(Request $request): View
     {
         $space = $this->getService('space')->findUsingSlug(
             $request->route('space_slug')
         );
 
-        return view('page', compact('space'));
+        return view('pages.editor', compact('space'));
     }
 }
