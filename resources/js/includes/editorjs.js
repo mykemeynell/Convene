@@ -96,7 +96,7 @@ $('#js-save-page-button').on('click', (event) => {
     editor.save().then((outputData) => {
         console.log('Article data: ', outputData);
 
-        let xhr = axios.post($('#space-page-form').val(), {
+        axios.post($('#space-page-form').val(), {
             'page': outputData
         }).then((response) => {
             console.log('Save response:', response);

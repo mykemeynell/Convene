@@ -42792,7 +42792,7 @@ $('#js-save-page-button').on('click', function (event) {
   event.preventDefault();
   editor.save().then(function (outputData) {
     console.log('Article data: ', outputData);
-    var xhr = axios.post($('#space-page-form').val(), {
+    axios.post($('#space-page-form').val(), {
       'page': outputData
     }).then(function (response) {
       console.log('Save response:', response);
