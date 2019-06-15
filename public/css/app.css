@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,800&display=swap);/*!
  * Start Bootstrap - SB Admin 2 v4.0.5 (https://startbootstrap.com/template-overviews/sb-admin-2)
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/blob/master/LICENSE)
@@ -7212,7 +7212,8 @@ button.bg-dark:focus {
   border-radius: 0.2rem !important;
 }
 
-.rounded {
+.rounded,
+.block-warning {
   border-radius: 0.25rem !important;
 }
 
@@ -7286,7 +7287,8 @@ button.bg-dark:focus {
   display: table-cell !important;
 }
 
-.d-flex {
+.d-flex,
+.block-warning {
   display: flex !important;
 }
 
@@ -8462,7 +8464,8 @@ button.bg-dark:focus {
 }
 
 .mr-0,
-.mx-0 {
+.mx-0,
+.block-warning {
   margin-right: 0 !important;
 }
 
@@ -8472,7 +8475,8 @@ button.bg-dark:focus {
 }
 
 .ml-0,
-.mx-0 {
+.mx-0,
+.block-warning {
   margin-left: 0 !important;
 }
 
@@ -8534,6 +8538,7 @@ button.bg-dark:focus {
 }
 
 .mr-3,
+.block-warning .block-warning__icon,
 .mx-3 {
   margin-right: 1rem !important;
 }
@@ -8544,6 +8549,7 @@ button.bg-dark:focus {
 }
 
 .ml-3,
+.block-warning .block-warning__icon,
 .mx-3 {
   margin-left: 1rem !important;
 }
@@ -8553,7 +8559,8 @@ button.bg-dark:focus {
 }
 
 .mt-4,
-.my-4 {
+.my-4,
+.block-warning {
   margin-top: 1.5rem !important;
 }
 
@@ -8563,7 +8570,8 @@ button.bg-dark:focus {
 }
 
 .mb-4,
-.my-4 {
+.my-4,
+.block-warning {
   margin-bottom: 1.5rem !important;
 }
 
@@ -8627,6 +8635,7 @@ button.bg-dark:focus {
 }
 
 .pt-1,
+.block-warning .block-warning__icon,
 .py-1 {
   padding-top: 0.25rem !important;
 }
@@ -8646,7 +8655,8 @@ button.bg-dark:focus {
   padding-left: 0.25rem !important;
 }
 
-.p-2 {
+.p-2,
+.block-warning {
   padding: 0.5rem !important;
 }
 
@@ -8690,6 +8700,7 @@ button.bg-dark:focus {
 }
 
 .pl-3,
+.block-warning .block-warning__content,
 .px-3 {
   padding-left: 1rem !important;
 }
@@ -10736,7 +10747,8 @@ button.bg-dark:focus {
   font-weight: 400 !important;
 }
 
-.font-weight-bold {
+.font-weight-bold,
+.block-warning .block-warning__content .block-warning__title {
   font-weight: 700 !important;
 }
 
@@ -10815,12 +10827,15 @@ a.text-light:focus {
   color: #cbd3da !important;
 }
 
-.text-dark {
+.text-dark,
+.block-warning {
   color: #343a40 !important;
 }
 
 a.text-dark:hover,
-a.text-dark:focus {
+a.block-warning:hover,
+a.text-dark:focus,
+a.block-warning:focus {
   color: #121416 !important;
 }
 
@@ -10965,6 +10980,10 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.block-warning {
+  background: #fff9ef;
 }
 
 select.selectize {

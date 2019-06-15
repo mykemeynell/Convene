@@ -1,0 +1,25 @@
+.block-warning {
+  @extend .d-flex;
+  @extend .p-2;
+  @extend .mx-0;
+  @extend .my-4;
+  @extend .rounded;
+  background: #fff9ef;
+  @extend .text-dark;
+
+  .block-warning__icon {
+    @extend .mr-3;
+    @extend .ml-3;
+    @extend .pt-1;
+  }
+
+  .block-warning__content {
+    @extend .pl-3;
+    .block-warning__title {
+      @extend .font-weight-bold;
+    }
+
+    .block-warning__message {
+    }
+  }
+}

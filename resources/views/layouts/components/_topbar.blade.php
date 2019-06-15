@@ -42,10 +42,13 @@
         </li>
 
         <ul class="list-unstyled my-auto mr-3 list-inline">
+            @if(in_array($route, ['page.showCreate']))
             <li class="list-inline-item">
                 <a id="js-save-page-button" href="#" class="btn btn-outline-primary btn-round">Save Changes</a>
             </li>
-            @if(! in_array($route, ['page.showCreate']))
+            @endif
+
+            @if(in_array($route, ['page.showSpace', 'spaces.showActivity']))
             <li class="list-inline-item">
                 <a id="" href="{{ route('page.showCreate', ['space_slug' => $space->getSlug()]) }}" class="btn btn-outline-primary btn-round">New Page</a>
             </li>
