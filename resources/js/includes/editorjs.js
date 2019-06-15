@@ -48,8 +48,7 @@ const editor = new EditorJS({
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 endpoints: {
-                    byFile: '/api/uploadFile', // Your backend file uploader endpoint
-                    byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+                    byFile: '/api/uploadFile'
                 }
             }
         },
