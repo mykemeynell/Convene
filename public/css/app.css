@@ -7270,6 +7270,7 @@ button.bg-dark:focus {
 }
 
 .d-inline-block,
+.space-menu-item-dropdown a,
 .block-link .block-link__link,
 .block-link .block-link__title {
   display: inline-block !important;
@@ -8310,6 +8311,7 @@ button.bg-dark:focus {
 
 .position-absolute,
 #convene-space-page-buttons,
+.space-menu-item-dropdown,
 .block-link .block-link__image {
   position: absolute !important;
 }
@@ -8682,7 +8684,8 @@ button.bg-dark:focus {
 }
 
 .pr-2,
-.px-2 {
+.px-2,
+.space-menu-item-dropdown a {
   padding-right: 0.5rem !important;
 }
 
@@ -8692,7 +8695,8 @@ button.bg-dark:focus {
 }
 
 .pl-2,
-.px-2 {
+.px-2,
+.space-menu-item-dropdown a {
   padding-left: 0.5rem !important;
 }
 
@@ -10778,7 +10782,8 @@ button.bg-dark:focus {
   font-style: italic !important;
 }
 
-.text-white {
+.text-white,
+.space-menu-item-dropdown a i {
   color: #fff !important;
 }
 
@@ -11760,6 +11765,21 @@ a.block-warning:focus {
 
 .block-image .caption {
   max-width: 200px;
+}
+
+.space-menu-item-dropdown {
+  cursor: pointer;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.space-menu-item-dropdown a i {
+  opacity: 0.5;
+}
+
+.space-menu-item-dropdown a i:hover {
+  opacity: 1;
 }
 
 select.selectize {

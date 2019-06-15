@@ -1,0 +1,21 @@
+.space-menu-item-dropdown {
+  @extend .position-absolute;
+  cursor: pointer;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+
+  a {
+    @extend .d-inline-block;
+    @extend .px-2;
+
+    i {
+      @extend .text-white;
+      opacity: 0.5;
+
+      &:hover {
+        opacity:1;
+      }
+    }
+  }
+}
