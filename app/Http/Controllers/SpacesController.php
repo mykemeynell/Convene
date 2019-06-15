@@ -50,6 +50,13 @@ class SpacesController extends Controller
         return view('spaces.create');
     }
 
+    /**
+     * Show the spaces activity view.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\View\View
+     */
     public function showActivity(Request $request): View
     {
         return view('spaces.activity', [
