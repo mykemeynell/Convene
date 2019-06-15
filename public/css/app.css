@@ -7124,7 +7124,8 @@ button.bg-dark:focus {
   background-color: #1d2124 !important;
 }
 
-.bg-white {
+.bg-white,
+.block-link {
   background-color: #fff !important;
 }
 
@@ -7213,6 +7214,7 @@ button.bg-dark:focus {
 }
 
 .rounded,
+.block-link,
 .block-warning {
   border-radius: 0.25rem !important;
 }
@@ -7267,7 +7269,9 @@ button.bg-dark:focus {
   display: inline !important;
 }
 
-.d-inline-block {
+.d-inline-block,
+.block-link .block-link__link,
+.block-link .block-link__title {
   display: inline-block !important;
 }
 
@@ -7288,6 +7292,7 @@ button.bg-dark:focus {
 }
 
 .d-flex,
+.block-link,
 .block-warning {
   display: flex !important;
 }
@@ -8298,12 +8303,14 @@ button.bg-dark:focus {
 }
 
 .position-relative,
-#relative-container {
+#relative-container,
+.block-link {
   position: relative !important;
 }
 
 .position-absolute,
-#convene-space-page-buttons {
+#convene-space-page-buttons,
+.block-link .block-link__image {
   position: absolute !important;
 }
 
@@ -8366,7 +8373,8 @@ button.bg-dark:focus {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
-.shadow {
+.shadow,
+.block-link {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
@@ -8519,6 +8527,7 @@ button.bg-dark:focus {
 }
 
 .mb-2,
+.block-link .block-link__top,
 .my-2 {
   margin-bottom: 0.5rem !important;
 }
@@ -8549,6 +8558,8 @@ button.bg-dark:focus {
 }
 
 .ml-3,
+.block-link .block-link__link,
+.block-link .block-link__image,
 .block-warning .block-warning__icon,
 .mx-3 {
   margin-left: 1rem !important;
@@ -8596,6 +8607,7 @@ button.bg-dark:focus {
 }
 
 .mb-5,
+.block-link,
 .my-5,
 #convene-space-page-wrapper hr {
   margin-bottom: 3rem !important;
@@ -8680,7 +8692,8 @@ button.bg-dark:focus {
   padding-left: 0.5rem !important;
 }
 
-.p-3 {
+.p-3,
+.block-link {
   padding: 1rem !important;
 }
 
@@ -10748,6 +10761,7 @@ button.bg-dark:focus {
 }
 
 .font-weight-bold,
+.block-link .block-link__title,
 .block-warning .block-warning__content .block-warning__title {
   font-weight: 700 !important;
 }
@@ -10984,6 +10998,22 @@ a.block-warning:focus {
 
 .block-warning {
   background: #fff9ef;
+}
+
+.block-link {
+  flex-direction: column;
+  min-height: 90px;
+  padding-right: 160px !important;
+}
+
+.block-link .block-link__image {
+  height: calc(100% - 30px);
+  right: 15px;
+  top: 15px;
+}
+
+.block-link .block-link__image img {
+  max-height: 100%;
 }
 
 select.selectize {
