@@ -94,4 +94,31 @@ class PagesController extends Controller
 
         return view('pages.editor', compact('space'));
     }
+
+    /**
+     * Show a page within a space.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showPage(Request $request): View
+    {
+        /** @var \Convene\Storage\Entity\SpaceEntity $space */
+        $space = $this->getService('space')->findUsingSlug($request->route('space_slug'));
+
+        /** @var \Convene\Storage\Entity\PageEntity $page */
+        $page = $this->getService('page')->findUsingSlug($request->route('page_slug'));
+
+        if(empty($space))
+            return abort(404);
+
+        if(empty($page))
+            return abort(404);
+
+        if($page->getSpaceId() !== $space->getKey())
+            return abort(404);
+
+        return view('pages.view', compact('space', 'page'));
+    }
 }
