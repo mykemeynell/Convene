@@ -77,11 +77,11 @@ class PageEntity extends Model implements PageEntityInterface
     /**
      * Get the space.
      *
-     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface|null
+     * @return \Convene\Storage\Entity\Contract\SpaceEntityInterface|Model|null
      */
     public function space(): ?SpaceEntityInterface
     {
-        // TODO: Implement space() method.
+        return $this->hasOne(app('space.entity'), 'id', 'space_id')->first();
     }
 
     /**
