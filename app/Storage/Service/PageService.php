@@ -66,4 +66,19 @@ class PageService extends Service implements PageServiceInterface
 
         return $page;
     }
+
+    /**
+     * Update page item via the ID.
+     *
+     * @param string                                         $id
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return bool
+     */
+    public function update(string $id, ParameterBag $payload): bool
+    {
+        $attributes = array_only($payload->all(), $this->getRepository()->getModel()->getFillable());
+        
+        return $this->getRepository()->builder()->where('id', $id)->update($attributes);
+    }
 }

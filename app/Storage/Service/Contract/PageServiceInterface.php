@@ -39,4 +39,14 @@ interface PageServiceInterface extends ServiceInterface
      * @return \Convene\Storage\Entity\Contract\PageEntityInterface|null
      */
     public function create(ParameterBag $payload): ?PageEntityInterface;
+
+    /**
+     * Update page item via the ID.
+     *
+     * @param string                                         $id
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return bool
+     */
+    public function update(string $id, ParameterBag $payload): bool;
 }

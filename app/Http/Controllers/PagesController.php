@@ -77,6 +77,47 @@ class PagesController extends Controller
      */
     public function handleUpdate(PostPageRequest $request)
     {
+        $blocks = collect($request->get('page')['blocks']);
+        $title = $blocks->filter(function($item) {
+            return $item['type'] == 'header';
+        })->first()['data']['text'];
+
+        if(empty($title)) {
+            return json("Please create at least one header type object", [], 400);
+        }
+
+        /** @var \Convene\Storage\Entity\SpaceEntity $space */
+        $space = $this->getService('space')->findUsingSlug(
+            $request->route('space_slug')
+        );
+
+        if(empty($space)) {
+            return json("That space doesn't exist", [], 404);
+        }
+
+        /** @var \Convene\Storage\Entity\PageEntity $page */
+        $page = $this->getService('page')->findUsingSlug(
+            $request->route('page_slug')
+        );
+
+        if(empty($page) || $page->getSpaceId() !== $space->getKey()) {
+            return json("That page doesn't exist, or isn't assigned to that space", [], 404);
+        }
+
+        try {
+            $payload = [
+                'space_id' => $space->getKey(),
+                'folder_id' => null,
+                'title' => $title,
+                'content' => json_encode($blocks),
+            ];
+
+            $this->getService('page')->update($page->getKey(), new ParameterBag($payload));
+
+            return json("Page data saved successfully", [], 200);
+        } catch(\Exception $exception) {
+            return json("Failed to save data because: {$exception->getMessage()}", [], 500);
+        }
     }
 
     /**
@@ -122,6 +163,13 @@ class PagesController extends Controller
         return view('pages.view', compact('space', 'page'));
     }
 
+    /**
+     * Show the edit view.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\View\View
+     */
     public function showEdit(Request $request): View
     {
         /** @var \Convene\Storage\Entity\SpaceEntity $space */
