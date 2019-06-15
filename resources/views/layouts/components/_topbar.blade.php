@@ -42,7 +42,7 @@
         </li>
 
         <ul class="list-unstyled my-auto mr-3 list-inline">
-            @if(in_array($route, ['page.showCreate']))
+            @if(in_array($route, ['page.showCreate', 'page.showEdit']))
             <li class="list-inline-item">
                 <a id="js-save-page-button" href="#" class="btn btn-outline-primary btn-round">Save Changes</a>
             </li>
