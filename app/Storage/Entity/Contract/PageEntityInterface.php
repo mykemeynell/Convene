@@ -3,7 +3,7 @@
 namespace Convene\Storage\Entity\Contract;
 
 /**
- * Interface PagesEntityInterface
+ * Interface PageEntityInterface
  *
  * @property string $space_id
  * @property string|null $folder_id
@@ -15,7 +15,7 @@ namespace Convene\Storage\Entity\Contract;
  *
  * @package Convene\Storage\Entity\Contract
  */
-interface PagesEntityInterface
+interface PageEntityInterface
 {
     /**
      * Get the parent space ID.
@@ -49,7 +49,7 @@ interface PagesEntityInterface
      * Get the display name.
      * Alias of getTitle().
      *
-     * @see \Convene\Storage\Entity\Contract\PagesEntityInterface::getTitle()
+     * @see \Convene\Storage\Entity\Contract\PageEntityInterface::getTitle()
      *
      * @return string
      */
