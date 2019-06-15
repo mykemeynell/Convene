@@ -10,7 +10,7 @@ import LinkTool from '@editorjs/link';
 let dataContainer = $('#editor-data');
 let initialData = "";
 if(dataContainer.length === 1) {
-    initialData = $.parseJSON(dataContainer.val());
+    initialData = {'blocks': $.parseJSON(dataContainer.val())};
 } else {
     initialData = {};
 }
@@ -78,7 +78,7 @@ const editor = new EditorJS({
             }
         }
     },
-    data: {'blocks': initialData}
+    data: initialData
 });
 
 editor.isReady

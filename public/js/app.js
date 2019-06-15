@@ -42710,7 +42710,9 @@ var dataContainer = $('#editor-data');
 var initialData = "";
 
 if (dataContainer.length === 1) {
-  initialData = $.parseJSON(dataContainer.val());
+  initialData = {
+    'blocks': $.parseJSON(dataContainer.val())
+  };
 } else {
   initialData = {};
 }
@@ -42778,9 +42780,7 @@ var editor = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a({
       }
     }
   },
-  data: {
-    'blocks': initialData
-  }
+  data: initialData
 });
 editor.isReady.then(function () {
   console.log('Editor.js is ready to work!');
