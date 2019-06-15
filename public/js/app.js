@@ -41106,7 +41106,9 @@ $('#space-access').selectize({
  * We use this to edit page content within spaces.
  */
 
-__webpack_require__(/*! ./includes/editorjs */ "./resources/js/includes/editorjs.js");
+if ($('#codex-editor').length > 0) {
+  __webpack_require__(/*! ./includes/editorjs */ "./resources/js/includes/editorjs.js");
+}
 
 /***/ }),
 

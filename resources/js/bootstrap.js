@@ -59,4 +59,6 @@ $('#space-access').selectize({
  * Include EditorJs.
  * We use this to edit page content within spaces.
  */
-require('./includes/editorjs');
+if($('#codex-editor').length > 0) {
+    require('./includes/editorjs');
+}
