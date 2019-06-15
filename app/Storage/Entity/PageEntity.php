@@ -7,6 +7,7 @@ use Convene\Storage\Entity\Contract\PageEntityInterface;
 use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Spatie\Sluggable\HasSlug;
 use UuidColumn\Concern\HasUuidObserver;
 
@@ -135,5 +136,15 @@ class PageEntity extends Model implements PageEntityInterface
     public function getContent(): ?string
     {
         return $this->content;
+    }
+
+    /**
+     * Get the blocks content.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getBlocks(): Collection
+    {
+        return collect(json_decode($this->getContent(), true));
     }
 }

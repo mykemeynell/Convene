@@ -2,6 +2,8 @@
 
 namespace Convene\Storage\Entity\Contract;
 
+use Illuminate\Support\Collection;
+
 /**
  * Interface PageEntityInterface
  *
@@ -75,4 +77,11 @@ interface PageEntityInterface
      * @return string|null
      */
     public function getContent(): ?string;
+
+    /**
+     * Get the blocks content.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getBlocks(): Collection;
 }
