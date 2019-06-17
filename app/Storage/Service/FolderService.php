@@ -27,7 +27,7 @@ class FolderService extends Service implements FolderServiceInterface
     /**
      * Find a folder using its ID.
      *
-     * @param string $id
+     * @param string|null $id
      *
      * @return \Convene\Storage\Entity\Contract\FolderEntityInterface|\Illuminate\Database\Eloquent\Model|null
      */
@@ -39,11 +39,11 @@ class FolderService extends Service implements FolderServiceInterface
     /**
      * Find a folder using its slug.
      *
-     * @param string $slug
+     * @param string|null $slug
      *
      * @return \Convene\Storage\Entity\Contract\FolderEntityInterface|\Illuminate\Database\Eloquent\Model|null
      */
-    public function findUsingSlug(string $slug): ?FolderEntityInterface
+    public function findUsingSlug(?string $slug): ?FolderEntityInterface
     {
         return $this->getRepository()->builder()->where('slug', $slug)->first();
     }

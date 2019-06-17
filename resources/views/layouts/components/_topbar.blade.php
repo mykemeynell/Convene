@@ -42,7 +42,7 @@
         </li>
 
         <ul class="list-unstyled my-auto mr-3 list-inline">
-            @if(in_array($route, ['page.showCreate', 'page.showEdit']))
+            @if(in_array($route, ['page.showCreate', 'page.showEdit', 'page.showFolderEdit']))
             <li class="list-inline-item">
                 <a href="#" class="btn btn-outline-primary btn-round" id="js-save-page-button">Save Changes</a>
             </li>
@@ -52,15 +52,18 @@
             </li>
             @endif
 
-            @if(in_array($route, ['page.showSpace', 'spaces.showActivity']))
+            @if(in_array($route, ['page.showSpace', 'page.showFolderSpace', 'spaces.showActivity']))
             <li class="list-inline-item">
                 <a id="" href="{{ route('page.showCreate', ['space_slug' => $space->getSlug()]) }}" class="btn btn-outline-primary btn-round">New Page</a>
             </li>
             @endif
 
-            @if(in_array($route, ['page.showSpace']))
+            @if(in_array($route, ['page.showSpace', 'page.showFolderSpace']))
             <li class="list-inline-item">
-                <a id="" href="{{ route('page.showEdit', ['space_slug' => $space->getSlug(), 'page_slug' => $page->getSlug()]) }}" class="btn btn-outline-primary btn-round">Edit Page</a>
+                <a id="" href="{{
+                $route == 'page.showFolderSpace'
+                ? route('page.showFolderEdit', ['space_slug' => $space->getSlug(), 'folder_slug' => $folder->getSlug(), 'page_slug' => $page->getSlug()])
+                : route('page.showEdit', ['space_slug' => $space->getSlug(), 'page_slug' => $page->getSlug()]) }}" class="btn btn-outline-primary btn-round">Edit Page</a>
             </li>
             @endif
         </ul>
