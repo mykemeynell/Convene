@@ -45,5 +45,7 @@ $router->group($options, function () use ($router) {
         $router->get('/fetch', 'ApiController@fetchUrlMeta')->name('api.fetchUrl');
         $router->post('/uploadFile', 'ApiController@uploadFile')->name('api.uploadFile');
         $router->post('/uploadUrl', 'ApiController@uploadUrl')->name('api.uploadUrl');
+
+        $router->post('folders/create', 'FoldersController@createFolder')->name('api.folder.create');
     });
 });
