@@ -49,11 +49,12 @@ class PagesController extends Controller
             return json("Please create at least one header level 1 object", [], 400);
         }
 
-        $space_id = $this->getService('space')->findUsingSlug($request->route('space_slug'))->getKey();
+        /** @var \Convene\Storage\Entity\SpaceEntity $space */
+        $space = $this->getService('space')->findUsingSlug($request->route('space_slug'));
 
         try {
             $payload = [
-                'space_id' => $space_id,
+                'space_id' => $space->getKey(),
                 'folder_id' => null,
                 'title' => $title,
                 'content' => json_encode($blocks),
@@ -62,7 +63,7 @@ class PagesController extends Controller
             /** @var \Convene\Storage\Entity\PageEntity $page */
             $page = $this->getService('page')->create(new ParameterBag($payload));
 
-            return json("Page data saved successfully", $page, 200);
+            return json("Page data saved successfully", array_merge_recursive(['url' => route('page.showSpace', ['space_slug' => $space->getSlug(), 'page_slug' => $page->getSlug()])], $page->toArray()), 200);
         } catch(\Exception $exception) {
             return json("Failed to save data because: {$exception->getMessage()}", [], 500);
         }

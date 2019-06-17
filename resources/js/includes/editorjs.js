@@ -104,8 +104,9 @@ editor.isReady
         console.log(`Editor.js initialization failed because of ${reason}`);
     });
 
-$('#js-save-page-button').on('click', (event) => {
+$('#js-save-page-button, #js-save-exit-page-button').on('click', function (event) {
     event.preventDefault();
+    let _this = $(this);
 
     editor.save().then((outputData) => {
         console.log('Article data: ', outputData);
@@ -114,6 +115,10 @@ $('#js-save-page-button').on('click', (event) => {
             'page': outputData
         }).then((response) => {
             console.log('Save response:', response);
+            if(_this.attr('id') === 'js-save-exit-page-button') {
+                window.location.href = response.data.data.url;
+                return false;
+            }
         }).catch((error) => {
             toaster({
                 'title': 'Failed to save data',

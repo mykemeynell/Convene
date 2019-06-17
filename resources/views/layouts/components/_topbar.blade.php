@@ -44,7 +44,11 @@
         <ul class="list-unstyled my-auto mr-3 list-inline">
             @if(in_array($route, ['page.showCreate', 'page.showEdit']))
             <li class="list-inline-item">
-                <a id="js-save-page-button" href="#" class="btn btn-outline-primary btn-round">Save Changes</a>
+                <a href="#" class="btn btn-outline-primary btn-round" id="js-save-page-button">Save Changes</a>
+            </li>
+
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-outline-primary btn-round" id="js-save-exit-page-button" data-then="close">Save &amp; Finish</a>
             </li>
             @endif
 
