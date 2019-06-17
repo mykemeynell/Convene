@@ -3,8 +3,8 @@
 namespace Convene\Storage\Entity;
 
 use Convene\Storage\Entity\Concern\SlugOptions as SlugOptionsConcern;
-use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Convene\Storage\Entity\Contract\SpaceAccessEntityInterface;
+use Convene\Storage\Entity\Contract\SpaceEntityInterface;
 use Convene\Storage\Entity\Contract\UserEntityInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
@@ -133,7 +133,8 @@ class SpaceEntity extends Model implements SpaceEntityInterface
      */
     public function pages(): Collection
     {
-        return $this->hasMany(app('page.entity'), 'space_id', 'id')->whereNull('folder_id')->get();
+        return $this->hasMany(app('page.entity'), 'space_id', 'id')->orderBy('created_at',
+            'asc')->whereNull('folder_id')->get();
     }
 
     /**
@@ -143,6 +144,6 @@ class SpaceEntity extends Model implements SpaceEntityInterface
      */
     public function folders(): Collection
     {
-        return $this->hasMany(app('folder.entity'), 'space_id', 'id')->get();
+        return $this->hasMany(app('folder.entity'), 'space_id', 'id')->orderBy('created_at', 'asc')->get();
     }
 }

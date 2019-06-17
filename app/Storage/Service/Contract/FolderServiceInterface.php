@@ -4,6 +4,7 @@ namespace Convene\Storage\Service\Contract;
 
 use ArchLayer\Service\Contract\ServiceInterface;
 use Convene\Storage\Entity\Contract\FolderEntityInterface;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Interface FolderServiceInterface.
@@ -29,4 +30,13 @@ interface FolderServiceInterface extends ServiceInterface
      * @return \Convene\Storage\Entity\Contract\FolderEntityInterface|\Illuminate\Database\Eloquent\Model|null
      */
     public function findUsingSlug(?string $slug): ?FolderEntityInterface;
+
+    /**
+     * Create a new folder instance.
+     *
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return \Convene\Storage\Entity\Contract\FolderEntityInterface|null
+     */
+    public function create(ParameterBag $payload): ?FolderEntityInterface;
 }

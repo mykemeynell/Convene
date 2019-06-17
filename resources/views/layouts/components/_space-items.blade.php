@@ -6,7 +6,7 @@
     <div class="d-inline-block w-50">
         {{ $space->getDisplayName() }}
     </div><div class="d-inline-block w-50 text-right">
-        <a href="#" data-toggle="modal" data-target="#new-folder-modal"><i class="fas fa-folder-plus"></i></a>
+        <a href="#" id="new-folder-trigger"><i class="fas fa-folder-plus"></i></a>
     </div>
 </div>
 

@@ -48,7 +48,7 @@ class FolderEntity extends Model implements FolderEntityInterface
      *
      * @var array
      */
-    protected $fillable = ['name', 'slug',];
+    protected $fillable = ['name', 'slug', 'space_id',];
 
     /**
      * Get the folders display name.

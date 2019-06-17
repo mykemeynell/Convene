@@ -6,6 +6,7 @@ use ArchLayer\Service\Service;
 use Convene\Storage\Entity\Contract\FolderEntityInterface;
 use Convene\Storage\Repository\Contract\FolderRepositoryInterface;
 use Convene\Storage\Service\Contract\FolderServiceInterface;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class FolderService.
@@ -46,5 +47,22 @@ class FolderService extends Service implements FolderServiceInterface
     public function findUsingSlug(?string $slug): ?FolderEntityInterface
     {
         return $this->getRepository()->builder()->where('slug', $slug)->first();
+    }
+
+    /**
+     * Create a new folder instance.
+     *
+     * @param \Symfony\Component\HttpFoundation\ParameterBag $payload
+     *
+     * @return \Convene\Storage\Entity\Contract\FolderEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function create(ParameterBag $payload): ?FolderEntityInterface
+    {
+        $folder = $this->getRepository()->create(
+            array_only($payload->all(), $this->getRepository()->getModel()->getFillable())
+        );
+        $folder->save();
+
+        return $folder;
     }
 }
