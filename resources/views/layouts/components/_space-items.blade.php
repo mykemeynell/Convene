@@ -3,7 +3,11 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    {{ $space->getDisplayName() }}
+    <div class="d-inline-block w-50">
+        {{ $space->getDisplayName() }}
+    </div><div class="d-inline-block w-50 text-right">
+        <a href="#"><i class="fas fa-folder-plus"></i></a>
+    </div>
 </div>
 
 <li class="nav-item @if($route == 'spaces.showActivity') active @endif">

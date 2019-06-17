@@ -10783,6 +10783,7 @@ button.bg-dark:focus {
 }
 
 .text-white,
+.sidebar-heading a:hover,
 .space-menu-item-dropdown a i {
   color: #fff !important;
 }
@@ -11800,5 +11801,9 @@ select.selectize {
 .ce-toolbar__content,
 .ce-block__content {
   max-width: 95%;
+}
+
+.sidebar-heading a {
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 

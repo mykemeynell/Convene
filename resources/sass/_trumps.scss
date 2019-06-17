@@ -22,3 +22,11 @@ select.selectize {display:none;}
 .ce-toolbar__content, .ce-block__content {
   max-width:95%
 }
+
+.sidebar-heading a {
+  color:rgba(255,255,255,0.4)!important;
+
+  &:hover {
+    @extend .text-white;
+  }
+}
