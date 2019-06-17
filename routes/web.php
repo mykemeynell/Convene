@@ -36,6 +36,8 @@ $router->group($options, function () use ($router) {
     $router->get('/spaces/{space_slug}/{page_slug}/edit', 'PagesController@showEdit')->name('page.showEdit');
     $router->post('/spaces/{space_slug}/{page_slug}/update', 'PagesController@handleUpdate')->name('page.handleUpdate');
 
+    $router->get('/spaces/{space_slug}/{folder_slug}/create', 'PagesController@showCreate')->name('page.showFolderCreate');
+    $router->post('/spaces/{space_slug}/{folder_slug}/create', 'PagesController@handleCreate')->name('page.handleFolderCreate');
 
     $router->get('/spaces/{space_slug}/{folder_slug}/{page_slug}', 'PagesController@showFolderPage')->name('page.showFolderSpace');
     $router->get('/spaces/{space_slug}/{folder_slug}/{page_slug}/edit', 'PagesController@showEdit')->name('page.showFolderEdit');

@@ -20,6 +20,10 @@
     @case('page.showFolderEdit')
         @php $endpoint = route('page.handleFolderUpdate', ['space_slug' => $space->getSlug(), 'folder_slug' => $folder->getSlug(), 'page_slug' => $page->getSlug()]); @endphp
     @break
+
+    @case('page.showFolderCreate')
+        @php $endpoint = route('page.handleFolderCreate', ['space_slug' => $space->getSlug(), 'folder_slug' => $folder->getSlug()]); @endphp
+    @break
 @endswitch
 
 @section('body')

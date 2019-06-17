@@ -23,8 +23,9 @@ class PagesController extends Controller
     /**
      * PagesController constructor.
      *
-     * @param \Convene\Storage\Service\Contract\PageServiceInterface  $page_service
-     * @param \Convene\Storage\Service\Contract\SpaceServiceInterface $space_service
+     * @param \Convene\Storage\Service\Contract\PageServiceInterface   $page_service
+     * @param \Convene\Storage\Service\Contract\SpaceServiceInterface  $space_service
+     * @param \Convene\Storage\Service\Contract\FolderServiceInterface $folder_service
      */
     function __construct(
         PageServiceInterface $page_service,
@@ -162,6 +163,15 @@ class PagesController extends Controller
         $space = $this->getService('space')->findUsingSlug(
             $request->route('space_slug')
         );
+
+        /** @var \Convene\Storage\Entity\FolderEntity $folder */
+        if($folder = $this->getService('folder')->findUsingSlug($request->route('folder_slug'))) {
+            if($folder->getSpaceId() !== $space->getKey()) {
+                return abort(404);
+            }
+
+            return view('pages.editor', compact('space', 'folder'));
+        }
 
         return view('pages.editor', compact('space'));
     }
