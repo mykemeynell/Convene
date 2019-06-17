@@ -119,8 +119,17 @@ class PagesController extends Controller
             }
 
             $folder_id = $folder->getKey();
+            $url = route('page.showFolderSpace', [
+                        'space_slug' => $space->getSlug(),
+                        'folder_slug' => $folder->getSlug(),
+                        'page_slug' => $page->getSlug(),
+                    ]);
         } else {
             $folder_id = null;
+            $url = route('page.showSpace', [
+                'space_slug' => $space->getSlug(),
+                'page_slug' => $page->getSlug(),
+            ]);
         }
 
         try {
@@ -135,14 +144,7 @@ class PagesController extends Controller
 
             $page = $this->getService('page')->findUsingSlug($request->route('page_slug'));
 
-            return json("Page data saved successfully", array_merge_recursive([
-                'url' => route('page.showFolderSpace',
-                    [
-                        'space_slug' => $space->getSlug(),
-                        'folder_slug' => $folder->getSlug(),
-                        'page_slug' => $page->getSlug(),
-                    ]),
-            ], $page->toArray()), 200);
+            return json("Page data saved successfully", array_merge_recursive(compact('url'), $page->toArray()), 200);
         } catch (\Exception $exception) {
             return json("Failed to save data because: {$exception->getMessage()}", [], 500);
         }
