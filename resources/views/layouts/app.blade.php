@@ -6,5 +6,6 @@
 @yield('content')
 
 @include('layouts.components._foot')
+@stack('end')
 </body>
 </html>

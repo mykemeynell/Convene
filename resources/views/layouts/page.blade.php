@@ -51,3 +51,5 @@
 
     </div>
 @endsection
+
+@push('end') @include('layouts.components.modals._new-folder') @endpush
