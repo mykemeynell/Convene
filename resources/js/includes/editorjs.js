@@ -7,6 +7,7 @@ import CodeTool from '@editorjs/code';
 import Warning from '@editorjs/warning';
 import LinkTool from '@editorjs/link';
 import Table from '@editorjs/table';
+import List from '@editorjs/list';
 
 let dataContainer = $('#editor-data');
 let initialData = "";
@@ -85,6 +86,10 @@ const editor = new EditorJS({
                 rows: 1,
                 cols: 1,
             },
+        },
+        list: {
+            class: List,
+            inlineToolbar: true,
         }
     },
     data: initialData
