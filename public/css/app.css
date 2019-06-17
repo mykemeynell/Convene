@@ -11768,6 +11768,7 @@ a.block-warning:focus {
 }
 
 .space-menu-item-dropdown {
+  z-index: 99999999;
   cursor: pointer;
   right: 10px;
   top: 50%;

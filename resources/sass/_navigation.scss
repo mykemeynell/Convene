@@ -1,5 +1,6 @@
 .space-menu-item-dropdown {
   @extend .position-absolute;
+  z-index:99999999;
   cursor: pointer;
   right:10px;
   top:50%;

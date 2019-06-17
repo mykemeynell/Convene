@@ -42,11 +42,11 @@ class PagesController extends Controller
     {
         $blocks = collect($request->get('page')['blocks']);
         $title = $blocks->filter(function($item) {
-            return $item['type'] == 'header';
+            return $item['type'] == 'header' && $item['data']['level'] == 1;
         })->first()['data']['text'];
 
         if(empty($title)) {
-            return json("Please create at least one header type object", [], 400);
+            return json("Please create at least one header level 1 object", [], 400);
         }
 
         $space_id = $this->getService('space')->findUsingSlug($request->route('space_slug'))->getKey();
