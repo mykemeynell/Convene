@@ -49,12 +49,10 @@
         <div id="item-{{ $id }}" class="collapse {{ $s_folder->getSlug() === $request->route('folder_slug') ? 'show' : '' }}" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a href="{{ route('page.showFolderCreate', ['space_slug' => $space->getSlug(), 'folder_slug' => $s_folder->getSlug()]) }}" class="collapse-item"><i class="fas fa-plus fa-fw mr-2"></i>New Page</a>
-                @forelse($s_folder->pages() as $f_page)
+                @foreach($s_folder->pages() as $f_page)
                     <a href="{{ route('page.showFolderSpace', ['space_slug' => $space->getSlug(), 'folder_slug' => $s_folder->getSlug(), 'page_slug' => $f_page->getSlug()]) }}"
                        class="collapse-item {{ url($path) ===  route('page.showFolderSpace', ['space_slug' => $space->getSlug(), 'folder_slug' => $s_folder->getSlug(), 'page_slug' => $f_page->getSlug()]) ? 'active' : ''}}">{{ $f_page->getDisplayName() }}</a>
-                @empty
-                    <a class="collapse-item">Empty</a>
-                @endforelse
+                @endforeach
             </div>
         </div>
     </li>

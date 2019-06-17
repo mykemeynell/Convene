@@ -66,8 +66,21 @@ class PagesController extends Controller
                 'content' => json_encode($blocks),
             ];
 
-            /** @var \Convene\Storage\Entity\PageEntity $page */
-            $page = $this->getService('page')->create(new ParameterBag($payload));
+            /** @var \Convene\Storage\Entity\FolderEntity $folder */
+            if($folder = $this->getService('folder')->findUsingSlug($request->route('folder_slug'))) {
+                if($folder->getSpaceId() !== $space->getKey()) {
+                    return json("That folder doesn't belong in that space", [], 404);
+                }
+
+                $payload['folder_id'] = $folder->getKey();
+
+                /** @var \Convene\Storage\Entity\PageEntity $page */
+                $page = $this->getService('page')->create(new ParameterBag($payload));
+
+                return json("Page data saved successfully", array_merge_recursive([
+                    'url' => route('page.showFolderSpace', ['space_slug' => $space->getSlug(), 'folder_slug' => $folder->getSlug(), 'page_slug' => $page->getSlug()]),
+                ], $page->toArray()), 200);
+            }
 
             return json("Page data saved successfully", array_merge_recursive([
                 'url' => route('page.showSpace', ['space_slug' => $space->getSlug(), 'page_slug' => $page->getSlug()]),
