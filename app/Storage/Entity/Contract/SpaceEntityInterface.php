@@ -69,9 +69,16 @@ interface SpaceEntityInterface
     public function owner(): UserEntityInterface;
 
     /**
-     * Get items that belong to a space.
+     * Get page items that belong to a space.
      *
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
      */
-    public function items(): Collection;
+    public function pages(): Collection;
+
+    /**
+     * Get folder items that belong to a space.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     */
+    public function folders(): Collection;
 }

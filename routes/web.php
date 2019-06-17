@@ -35,6 +35,7 @@ $router->group($options, function () use ($router) {
     $router->get('/spaces/{space_slug}/{page_slug}/edit', 'PagesController@showEdit')->name('page.showEdit');
     $router->post('/spaces/{space_slug}/{page_slug}/update', 'PagesController@handleUpdate')->name('page.handleUpdate');
     $router->get('/spaces/{space_slug}/{page_slug}', 'PagesController@showPage')->name('page.showSpace');
+    $router->get('/spaces/{space_slug}/{folder_slug}/{page_slug}', 'PagesController@showFolderPage')->name('page.showFolderSpace');
 
     $router->group(['prefix' => 'api'], function() use ($router) {
         $router->get('/fetch', 'ApiController@fetchUrlMeta')->name('api.fetchUrl');

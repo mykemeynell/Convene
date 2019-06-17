@@ -17,7 +17,7 @@
 </li>
 
 
-@foreach($space->items() as $s_page)
+@foreach($space->pages() as $s_page)
 <li class="nav-item @if(
         url($path) == route('page.showSpace', ['space_slug' => $space->getSlug(), 'page_slug' => $s_page->getSlug()]) ||
         url($path) == route('page.showEdit', ['space_slug' => $space->getSlug(), 'page_slug' => $s_page->getSlug()])
@@ -37,4 +37,23 @@
     </div>
     @endif
 </li>
+@endforeach
+
+@foreach($space->folders() as $s_folder)
+    @php $id = md5(microtime()); @endphp
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#item-{{ $id }}" aria-expanded="false" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>{{ $s_folder->getDisplayName() }}</span>
+        </a>
+        <div id="item-{{ $id }}" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
+            <div class="bg-white py-2 collapse-inner rounded">
+                @forelse($s_folder->pages() as $f_page)
+                    <a href="{{ route('page.showFolderSpace', ['space_slug' => $space->getSlug(), 'folder_slug' => $s_folder->getSlug(), 'page_slug' => $f_page->getSlug()]) }}" class="collapse-item">{{ $f_page->getDisplayName() }}</a>
+                @empty
+                    <a class="collapse-item">Empty</a>
+                @endforelse
+            </div>
+        </div>
+    </li>
 @endforeach

@@ -39,6 +39,10 @@ class StorageProvider extends ServiceProvider
         'page.entity'  => [\Convene\Storage\Entity\Contract\PageEntityInterface::class],
         'page.repository' => [\Convene\Storage\Repository\Contract\PageRepositoryInterface::class],
         'page.service' => [\Convene\Storage\Service\Contract\PageServiceInterface::class],
+
+        'folder.entity'  => [\Convene\Storage\Entity\Contract\FolderEntityInterface::class],
+        'folder.repository' => [\Convene\Storage\Repository\Contract\FolderRepositoryInterface::class],
+        'folder.service' => [\Convene\Storage\Service\Contract\FolderServiceInterface::class],
     ];
 
     /**
@@ -66,6 +70,7 @@ class StorageProvider extends ServiceProvider
         $this->app->bind('spaceAccess.entity', \Convene\Storage\Entity\SpaceAccessEntity::class);
         $this->app->bind('space.entity', \Convene\Storage\Entity\SpaceEntity::class);
         $this->app->bind('page.entity', \Convene\Storage\Entity\PageEntity::class);
+        $this->app->bind('folder.entity', \Convene\Storage\Entity\FolderEntity::class);
     }
 
     /**
@@ -80,6 +85,7 @@ class StorageProvider extends ServiceProvider
          $this->app->singleton('spaceAccess.repository', \Convene\Storage\Repository\SpaceAccessRepository::class);
          $this->app->singleton('space.repository', \Convene\Storage\Repository\SpaceRepository::class);
          $this->app->singleton('page.repository', \Convene\Storage\Repository\PageRepository::class);
+         $this->app->singleton('folder.repository', \Convene\Storage\Repository\FolderRepository::class);
     }
 
     /**
@@ -94,5 +100,6 @@ class StorageProvider extends ServiceProvider
          $this->app->singleton('spaceAccess.service', \Convene\Storage\Service\SpaceAccessService::class);
          $this->app->singleton('space.service', \Convene\Storage\Service\SpaceService::class);
          $this->app->singleton('page.service', \Convene\Storage\Service\PageService::class);
+         $this->app->singleton('folder.service', \Convene\Storage\Service\FolderService::class);
     }
 }

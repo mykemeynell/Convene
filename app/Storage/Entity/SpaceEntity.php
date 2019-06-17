@@ -127,12 +127,22 @@ class SpaceEntity extends Model implements SpaceEntityInterface
     }
 
     /**
-     * Get items that belong to a space.
+     * Get page items that belong to a space.
      *
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
      */
-    public function items(): Collection
+    public function pages(): Collection
     {
-        return $this->hasMany(app('page.entity'), 'space_id', 'id')->get();
+        return $this->hasMany(app('page.entity'), 'space_id', 'id')->whereNull('folder_id')->get();
+    }
+
+    /**
+     * Get folder items that belong to a space.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     */
+    public function folders(): Collection
+    {
+        return $this->hasMany(app('folder.entity'), 'space_id', 'id')->get();
     }
 }
