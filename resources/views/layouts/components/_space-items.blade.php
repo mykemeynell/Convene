@@ -42,14 +42,15 @@
 @foreach($space->folders() as $s_folder)
     @php $id = md5(microtime()); @endphp
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#item-{{ $id }}" aria-expanded="false" aria-controls="collapsePages">
+        <a class="nav-link @if($s_folder->getSlug() !== $request->route('folder_slug')) collapsed @endif" href="#" data-toggle="collapse" data-target="#item-{{ $id }}" aria-expanded="{{ $s_folder->getSlug() !== $request->route('folder_slug') ? 'false' : 'true' }}" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>{{ $s_folder->getDisplayName() }}</span>
         </a>
-        <div id="item-{{ $id }}" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
+        <div id="item-{{ $id }}" class="collapse {{ $s_folder->getSlug() === $request->route('folder_slug') ? 'show' : '' }}" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
             <div class="bg-white py-2 collapse-inner rounded">
                 @forelse($s_folder->pages() as $f_page)
-                    <a href="{{ route('page.showFolderSpace', ['space_slug' => $space->getSlug(), 'folder_slug' => $s_folder->getSlug(), 'page_slug' => $f_page->getSlug()]) }}" class="collapse-item">{{ $f_page->getDisplayName() }}</a>
+                    <a href="{{ route('page.showFolderSpace', ['space_slug' => $space->getSlug(), 'folder_slug' => $s_folder->getSlug(), 'page_slug' => $f_page->getSlug()]) }}"
+                       class="collapse-item {{ url($path) ===  route('page.showFolderSpace', ['space_slug' => $space->getSlug(), 'folder_slug' => $s_folder->getSlug(), 'page_slug' => $f_page->getSlug()]) ? 'active' : ''}}">{{ $f_page->getDisplayName() }}</a>
                 @empty
                     <a class="collapse-item">Empty</a>
                 @endforelse
