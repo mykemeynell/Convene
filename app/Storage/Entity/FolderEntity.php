@@ -97,6 +97,6 @@ class FolderEntity extends Model implements FolderEntityInterface
      */
     public function pages(): Collection
     {
-        //
+        return $this->hasMany(app('page.entity'), 'folder_id', 'id')->get();
     }
 }
