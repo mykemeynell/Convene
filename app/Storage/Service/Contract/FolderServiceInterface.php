@@ -3,6 +3,7 @@
 namespace Convene\Storage\Service\Contract;
 
 use ArchLayer\Service\Contract\ServiceInterface;
+use Convene\Storage\Entity\Contract\FolderEntityInterface;
 
 /**
  * Interface FolderServiceInterface.
@@ -11,5 +12,21 @@ use ArchLayer\Service\Contract\ServiceInterface;
  */
 interface FolderServiceInterface extends ServiceInterface
 {
-    //
+    /**
+     * Find a folder using its ID.
+     *
+     * @param string $id
+     *
+     * @return \Convene\Storage\Entity\Contract\FolderEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingId(string $id): ?FolderEntityInterface;
+
+    /**
+     * Find a folder using its slug.
+     *
+     * @param string $slug
+     *
+     * @return \Convene\Storage\Entity\Contract\FolderEntityInterface|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findUsingSlug(string $slug): ?FolderEntityInterface;
 }

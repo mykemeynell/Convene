@@ -3,6 +3,7 @@
 namespace Convene\Http\Controllers;
 
 use Convene\Http\Requests\Page\PostPageRequest;
+use Convene\Storage\Service\Contract\FolderServiceInterface;
 use Convene\Storage\Service\Contract\PageServiceInterface;
 use Convene\Storage\Service\Contract\SpaceServiceInterface;
 use Convene\Support\Concern\HasService;
@@ -25,10 +26,11 @@ class PagesController extends Controller
      * @param \Convene\Storage\Service\Contract\PageServiceInterface  $page_service
      * @param \Convene\Storage\Service\Contract\SpaceServiceInterface $space_service
      */
-    function __construct(PageServiceInterface $page_service, SpaceServiceInterface $space_service)
+    function __construct(PageServiceInterface $page_service, SpaceServiceInterface $space_service, FolderServiceInterface $folder_service)
     {
         $this->setService($page_service, 'page');
         $this->setService($space_service, 'space');
+        $this->setService($folder_service, 'folder');
     }
 
     /**
@@ -191,5 +193,39 @@ class PagesController extends Controller
 
         return view('pages.editor', compact('space', 'page'));
 
+    }
+
+    /**
+     * Show a page that belongs to a folder within a space.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showFolderPage(Request $request): View
+    {
+        /** @var \Convene\Storage\Entity\SpaceEntity $space */
+        $space = $this->getService('space')->findUsingSlug($request->route('space_slug'));
+
+        if(empty($space)) {
+            return abort(404);
+        }
+
+        /** @var \Convene\Storage\Entity\FolderEntity $folder */
+        $folder = $this->getService('folder')->findUsingSlug($request->route('folder_slug'));
+
+        if(empty($folder) || $folder->getSpaceId() !== $space->getKey()) {
+            return abort(404);
+        }
+
+        /** @var \Convene\Storage\Entity\PageEntity $page */
+        $page = $this->getService('page')->findUsingSlug($request->route('page_slug'));
+
+        if(empty($page) || $page->getFolderId() !== $folder->getKey() || $page->getSpaceId() !== $space->getKey())
+        {
+            return abort(404);
+        }
+
+        return view('pages.view', compact('space', 'folder', 'page'));
     }
 }
