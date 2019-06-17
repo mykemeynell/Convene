@@ -6,6 +6,7 @@ import Embed from '@editorjs/embed';
 import CodeTool from '@editorjs/code';
 import Warning from '@editorjs/warning';
 import LinkTool from '@editorjs/link';
+import Table from '@editorjs/table';
 
 let dataContainer = $('#editor-data');
 let initialData = "";
@@ -76,6 +77,14 @@ const editor = new EditorJS({
             config: {
                 endpoint: '/api/fetch', // Your backend endpoint for url data fetching
             }
+        },
+        table: {
+            class: Table,
+            inlineToolbar: true,
+            config: {
+                rows: 1,
+                cols: 1,
+            },
         }
     },
     data: initialData
